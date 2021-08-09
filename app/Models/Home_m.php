@@ -31,7 +31,7 @@ class Home_m extends Model
         $user = session()->get('id_user');
         return $this->db->table('surat_usulan')
         ->where('status', 'Diajukan')
-        ->where('iduser', $user)
+        ->where('user', $user)
         ->countAllResults();
     }
 

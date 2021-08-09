@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\Auth_m;
+use App\Models\User_m;
 use App\Models\Divisi_m;
 use App\Models\Reset_model_m;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -17,6 +18,7 @@ class Auth extends BaseController
         helper('text');
 		$this->divisi = new Divisi_m();
         $this->auth = new Auth_m();
+        $this->user = new User_m();
         $this->reset_pass = new Reset_model_m();
 	}
 	public function index()
@@ -107,7 +109,7 @@ class Auth extends BaseController
 
             $email = \Config\Services::email();
 
-            $email->setFrom('scrum.tool55@gmail.com');
+            $email->setFrom('ejfp.internal2021@gmail.com');
             $email->setTo($cek['email']);
             $email->setSubject("Atur Ulang Password");
             $email->setMessage($message);
@@ -115,15 +117,56 @@ class Auth extends BaseController
             $email->send();
             if($email->send())
             {
-                session()->setFlashdata('pesan', "Silahkan cek email anda");
-                return redirect()->to(base_url('auth/login'));
+                session()->setFlashdata('sukses', "Silahkan cek email anda");
+                return redirect()->to(base_url('auth'));
             }
             else {
                 session()->setFlashdata('pesan', 'Gagal atur ulang password, masukan email yang benar');
-                return redirect()->to(base_url('auth/proses_forgot'));
+                return redirect()->to(base_url('auth/forgot'));
             }
     }
     }
+
+    public function reset_pass($token)
+    {
+        $data = array(
+			'title'		  => 'Reset Password',
+            'token'        => $token,
+		);
+		return view('auth/reset_pass', $data);
+    }
+
+    public function proses_reset()
+    {
+        if(!$this->validate([
+				
+            'password' => ['rules'=>'required|min_length[8]',
+                             'errors'=>[ 'required'=>  'Kata Sandi wajib diisi',
+                                         'min_length'=> 'Kata Sandi minimal 8 karakter']
+
+                              ],
+            'cpassword' => ['rules'=> 'required|matches[password]',
+                             'errors'=>[ 'required'=>  'Kata Sandi wajib diisi',
+                                         'matches'=> 'Kata Sandi Harus sama']
+                              ],
+
+        ])) {
+            // $validation = \Config\Services::validation();
+            // return redirect()->to(base_url('/recipe/create'))->withInput()->with('validation',$validation);
+            return redirect()->to(base_url('auth/reset_pass/'.$this->request->getVar('token')))->withInput();
+        }
+        $id_user = $this->reset_pass->Search_Token($this->request->getVar('token'))['id_user'];
+        $this->user->updatePass(
+            $id_user,
+            password_hash($this->request->getVar('cpassword'), PASSWORD_DEFAULT)
+        );
+
+        // dd($this->reset_pass->Search_Token($this->request->getVar('token')));
+        session()->setFlashdata('pesan', "Password Berhasil di reset");
+        return redirect()->to(base_url('auth/login'));
+    }
+    
+
 
 
 

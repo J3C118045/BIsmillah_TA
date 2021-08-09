@@ -20,7 +20,7 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">E-JFP | Internal</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">E-JFP | Internal | <?= $title; ?></h1>
                                     </div>
                                     <?php 
                                     $errors = session()->getFlashdata('errors');
@@ -41,21 +41,23 @@
                                             echo '</div>';
                                         };
                                     ?>
-                                    <?php echo form_open('auth/login') ?>
-                                        
+                                    <form action="<?= base_url('auth/proses_reset/') ?>" method="POST">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" value="<?= $token ?>" name='token'>
                                         <div class="form-group">
                                             <input type="password" name="password" class="form-control form-control-user border-left-primary"
+                                                id="exampleInputPassword" placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="cpassword" class="form-control form-control-user border-left-primary"
                                                 id="exampleInputPassword" placeholder="Password">
                                         </div>
                                         <button class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
                                         <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="#">Lupa Kata Sandi?</a>
-                                    </div>
                                         
-                                    <?php form_close() ?>
+                                    </form>
                                 </div>
                             </div>
                         </div>

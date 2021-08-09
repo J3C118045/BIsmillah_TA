@@ -10,5 +10,12 @@ class reset_model_m extends Model
 
     }
 
+    public function Search_Token($token)
+    {
+        return $this->db->table('reset_password')->where([
+            'token' => $token,
+            // 'password' => $password,
+        ])->get()->getRowArray();
+    }
     
 }

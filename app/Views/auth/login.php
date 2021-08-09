@@ -41,6 +41,14 @@
                                             echo '</div>';
                                         };
                                     ?>
+                                    <?php
+                                        if (session()->getFlashdata('sukses')) {
+                                            echo '<div class="alert alert-success alert-dismissible">';
+                                            echo session()->getFlashdata('sukses');
+                                            echo session()->getFlashdata('username');
+                                            echo '</div>';
+                                        };
+                                    ?>
                                     <?php echo form_open('auth/login') ?>
                                         <div class="form-group">
                                             <input type="text" name="username" class="form-control form-control-user border-left-primary"
