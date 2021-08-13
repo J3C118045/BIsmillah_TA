@@ -86,7 +86,7 @@ class Pengguna extends BaseController
 			$data = array (
 				'username'		=> $this->request->getPost('username'),
 				'email'			=> $this->request->getPost('email'),
-				'password'		=> $this->request->getPost('password'),
+				'password'		=> password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
 				'level'			=> $this->request->getPost('level'),
 				'id_divisi'		=> $this->request->getPost('id_divisi'),
 				'foto'			=> $nama_file,
@@ -150,7 +150,7 @@ class Pengguna extends BaseController
 				$data = array(
 					'id_user'		=> $id,
 					'email'			=> $this->request->getPost('email'),
-					'password'		=> $this->request->getPost('password'),
+					'password'		=> password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
 					'level'			=> $this->request->getPost('level'),
 					'id_divisi'		=> $this->request->getPost('id_divisi'),
 				);

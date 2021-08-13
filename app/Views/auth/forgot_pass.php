@@ -52,7 +52,7 @@
                                         </button>
                                         <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?= base_url('auth/login') ?>">Sudah Ingat Kata Sandi Anda?</a>
+                                        <a class="small" href="<?= base_url('auth') ?>">Sudah Ingat Kata Sandi Anda?</a>
                                     </div>
                                         
                                     <?php form_close() ?>

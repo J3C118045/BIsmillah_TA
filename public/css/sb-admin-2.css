@@ -10128,6 +10128,13 @@ a:focus {
   margin-top: -.25rem;
 }
 
+.profil {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .sidebar .nav-item .nav-link .img-profile,
 .topbar .nav-item .nav-link .img-profile {
   height: 2rem;

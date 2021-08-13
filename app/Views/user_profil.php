@@ -55,20 +55,28 @@
 
                     <div class="row">
 
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 justfy-content-center">
+                        <!-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 justfy-content-center"> -->
 
                             <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <img src="<?= base_url() ?>/img/ava/<?= $user['foto'] ?>" alt="profile" class="card-img-top rounded mt-0 mb-3 mx-auto" width="320" height="280" style="object-fit: contain;">
-                                    <h4 class="card-title text-center font-weight-bold"><?= $user['username']; ?></h4>
-                                    <h5 class="card-title text-center mb-0"><?= $user['email']; ?></h5>
-                                    <p class="card-text text-center"><?= $user['nama_divisi']; ?></p>
-                                    <button type="button" data-toggle="modal" data-target="#editModal<?=$user['id_user']?>" class="btn btn-primary btn-block btn-modal" id="btn-ubah">Ubah Profil</button>
-                                    <button type="button" data-toggle="modal" data-target="#passwordModal<?=$user['id_user']?>" class="btn btn-success btn-block btn-modal">Ganti Password</button>
+                                <div class="card-body p-0">
+                                    <div class="card p-3">
+                                        <div class="d-flex align-items center">
+                                            <div class="image p-1"><img src="<?= base_url() ?>/img/ava/<?= $user['foto'] ?>" alt="profile" class=" profil " width="250"  style="object-fit: cover;"></div>
+                                            <div class="ml-3 w-100 p-1">
+                                                <h4 class="font-weight-bold mb-0 mt-0"><?= $user['username']; ?></h4>
+                                                <p class="mb-0 mt-0"><?= $user['email']; ?></p>
+                                                <p><?= $user['nama_divisi']; ?></p>
+                                                <button type="button" data-toggle="modal" data-target="#editModal<?=$user['id_user']?>" class="btn btn-primary btn-block btn-modal" id="btn-ubah">Ubah Profil</button>
+                                                <button type="button" data-toggle="modal" data-target="#passwordModal<?=$user['id_user']?>" class="btn btn-success btn-block btn-modal">Ganti Password</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                
                             </div>
-                        </div>
+                        <!-- </div> -->
                     </div>
+                </div>
                 <!-- /.container-fluid -->
 
             </div>
