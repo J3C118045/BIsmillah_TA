@@ -80,7 +80,7 @@ class Auth extends BaseController
     public function forgot()
     {
         $data = array(
-			'title'		  => 'Forgot Password',
+			'title'		  => 'Lupa Kata Sandi Anda ?',
 		);
 		return view('auth/forgot_pass', $data);
     }
@@ -130,7 +130,7 @@ class Auth extends BaseController
     public function reset_pass($token)
     {
         $data = array(
-			'title'		  => 'Reset Password',
+			'title'		  => 'Atur Ulang Kata Sandi Anda',
             'token'        => $token,
 		);
 		return view('auth/reset_pass', $data);
@@ -155,12 +155,16 @@ class Auth extends BaseController
             // return redirect()->to(base_url('/recipe/create'))->withInput()->with('validation',$validation);
             return redirect()->to(base_url('auth/reset_pass/'.$this->request->getVar('token')))->withInput();
         }
-        $id_user = $this->reset_pass->Search_Token($this->request->getVar('token'))['id_user'];
-        $this->user->updatePass(
-            $id_user,
-            password_hash($this->request->getVar('cpassword'), PASSWORD_DEFAULT)
-        );
-
+        $token = $this->reset_pass->Search_Token($this->request->getVar('token'));
+        if ($token['keterangan'] == 0 ) {
+            $this->user->updatePass(
+                $token['id_user'],
+                password_hash($this->request->getVar('cpassword'), PASSWORD_DEFAULT)
+            );
+        } else {
+        session()->setFlashdata('pesan', 'Token Sudah Pernah digunakan');
+        return redirect()->to(base_url('auth/forgot'));
+        }
         // dd($this->reset_pass->Search_Token($this->request->getVar('token')));
         session()->setFlashdata('pesan', "Password Berhasil di reset");
         return redirect()->to(base_url('auth/login'));

@@ -18,4 +18,10 @@ class reset_model_m extends Model
         ])->get()->getRowArray();
     }
     
+    public function usedToken($token) 
+    {
+        return $this->db->table('reset_password')
+        ->where('token', $token)
+        ->update(['keterangan' => 1]);
+    }
 }

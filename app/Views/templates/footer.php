@@ -244,12 +244,23 @@
                     "<'row'<'col-sm-12'tr>>" +
                     "<'row'<'col-sm-5'i><'col-sm-7'p>>",
                     buttons: [
-                        {"extend": 'excelHtml5',"text": '<div class="btn btn-success">Cetak Data</div>', "className": 'excelButton btn-success py-0 px-0 border-0 rounded',
-                            customize : function ( xlsx ){
+                        {
+                            "extend": 'excelHtml5',
+                            "text": '<div class="btn btn-success">Cetak Data</div>', 
+                            "className": 'excelButton btn-success py-0 px-0 border-0 rounded',
+                            "customize" : function ( xlsx ){
                             var sheet = xlsx.xl.worksheets['sheet1.xml'];
             
-                            // jQuery selector to add a border
-                            $('row c[r*="A2:K2"]', sheet).attr( 's', '25' );
+                            // // jQuery selector to add a border
+                            // $('row c[r^="s-0"]', sheet).attr( 's', '25' );
+
+                                var loop = 0;
+                                $('row', sheet).each(function () {
+                                $(this).find("c").attr('s', '25');
+                                loop++;
+                                });
+                                $('row:second c', sheet).attr( 's', '2' );
+                                $('row:second c', sheet).attr( 's', '51' );
                             }
                         },
                     ],

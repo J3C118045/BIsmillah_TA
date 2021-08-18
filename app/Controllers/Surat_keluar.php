@@ -171,7 +171,7 @@ class Surat_keluar extends BaseController
 		if ($this->validate([
 			'no_surat'	=> [
 				'label'	=> 'No. Surat',
-				'rules'	=> 'required|is_unique[surat_masuk.no_surat]',
+				'rules'	=> 'required',
 				'errors'	=> [
 					'required'	=> '{field} Wajib diisi !!!',
 					'is_unique'	=> '{field} sudah digunakan, harap periksa kembali...'
@@ -315,27 +315,26 @@ class Surat_keluar extends BaseController
 
 		//Style Judul table
 		$spreadsheet->getActiveSheet()
-			->getStyle('A1:M1')
+			->getStyle('A1:L1')
 			->applyFromArray($styleJudul);
 		$spreadsheet->getActiveSheet()
-			->getStyle('A1:M1')
+			->getStyle('A1:L1')
 			->applyFromArray($styleBorder);
 
         // tulis header/nama kolom 
         $spreadsheet->setActiveSheetIndex(0)
                     ->setCellValue('A1', 'No.')
                     ->setCellValue('B1', 'No. Surat')
-                    ->setCellValue('C1', 'Tanggal Diterima')
+                    ->setCellValue('C1', 'Tanggal Surat')
                     ->setCellValue('D1', 'Tanggal Kirim')
-                    ->setCellValue('E1', 'Pengolah')
-                    ->setCellValue('F1', 'Kegiatan Tugas Jabatan')
+                    ->setCellValue('E1', 'Pengolah - KTJ')
+                    ->setCellValue('F1', 'Perihal')
                     ->setCellValue('G1', 'Tujuan')
-                    ->setCellValue('H1', 'Perihal')
-                    ->setCellValue('I1', 'Disposisi Seskab')
-                    ->setCellValue('J1', 'Disposisi Waseskab')
-                    ->setCellValue('K1', 'Disposisi Deputi')
-                    ->setCellValue('L1', 'Disposisi Kapus')
-                    ->setCellValue('M1', 'Link Netbox')
+                    ->setCellValue('H1', 'Disposisi Seskab')
+                    ->setCellValue('I1', 'Disposisi Waseskab')
+                    ->setCellValue('J1', 'Disposisi Deputi')
+                    ->setCellValue('K1', 'Disposisi Kapus')
+                    ->setCellValue('L1', 'Link Netbox')
                     ;
         
         $column = 2;
@@ -345,17 +344,16 @@ class Surat_keluar extends BaseController
             $spreadsheet->setActiveSheetIndex(0)
                         ->setCellValue('A' . $column, $i++)
                         ->setCellValue('B' . $column, $data['no_surat'])
-                        ->setCellValue('C' . $column, $data['tgl_diterima'])
+                        ->setCellValue('C' . $column, $data['tgl_surat'])
                         ->setCellValue('D' . $column, $data['tgl_kirim'])
-                        ->setCellValue('E' . $column, $data['username'].' - '.$data['nama_divisi'])
-                        ->setCellValue('F' . $column, $data['kode_tugas'])
+                        ->setCellValue('E' . $column, $data['nama_divisi'].' - '.$data['kode_tugas'])
+                        ->setCellValue('F' . $column, $data['perihal'])
                         ->setCellValue('G' . $column, $data['tujuan'])
-                        ->setCellValue('H' . $column, $data['perihal'])
-                        ->setCellValue('I' . $column, $data['disposisi_seskab'])
-                        ->setCellValue('J' . $column, $data['disposisi_waseskab'])
-                        ->setCellValue('K' . $column, $data['disposisi_deputi'])
-                        ->setCellValue('L' . $column, $data['disposisi_kapus'])
-                        ->setCellValue('M' . $column, $data['link']);
+                        ->setCellValue('H' . $column, $data['disposisi_seskab'])
+                        ->setCellValue('I' . $column, $data['disposisi_waseskab'])
+                        ->setCellValue('J' . $column, $data['disposisi_deputi'])
+                        ->setCellValue('K' . $column, $data['disposisi_kapus'])
+                        ->setCellValue('L' . $column, $data['link']);
 			
 			$spreadsheet->getActiveSheet()->getStyle('A' . $column)->applyFromArray($styleBorder);
 			$spreadsheet->getActiveSheet()->getStyle('B' . $column)->applyFromArray($styleBorder);
@@ -369,7 +367,6 @@ class Surat_keluar extends BaseController
 			$spreadsheet->getActiveSheet()->getStyle('J' . $column)->applyFromArray($styleBorder);       
 			$spreadsheet->getActiveSheet()->getStyle('k' . $column)->applyFromArray($styleBorder);       
 			$spreadsheet->getActiveSheet()->getStyle('L' . $column)->applyFromArray($styleBorder);       
-			$spreadsheet->getActiveSheet()->getStyle('M' . $column)->applyFromArray($styleBorder);       
 			
 			$spreadsheet->getActiveSheet()->getStyle($column)->getAlignment()->setVertical(Alignment::VERTICAL_CENTER);
 			$spreadsheet->getActiveSheet()->getStyle('A' . $column)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -381,15 +378,14 @@ class Surat_keluar extends BaseController
             $spreadsheet->getActiveSheet()->getColumnDimension('B')->setWidth('25');
             $spreadsheet->getActiveSheet()->getColumnDimension('C')->setWidth('25');
             $spreadsheet->getActiveSheet()->getColumnDimension('D')->setWidth('25');
-            $spreadsheet->getActiveSheet()->getColumnDimension('E')->setWidth('25');
+            $spreadsheet->getActiveSheet()->getColumnDimension('E')->setWidth('30');
             $spreadsheet->getActiveSheet()->getColumnDimension('F')->setWidth('25');
             $spreadsheet->getActiveSheet()->getColumnDimension('G')->setWidth('25');
-            $spreadsheet->getActiveSheet()->getColumnDimension('H')->setWidth('25');
+            $spreadsheet->getActiveSheet()->getColumnDimension('H')->setWidth('30');
             $spreadsheet->getActiveSheet()->getColumnDimension('I')->setWidth('30');
 			$spreadsheet->getActiveSheet()->getColumnDimension('J')->setWidth('30');
 			$spreadsheet->getActiveSheet()->getColumnDimension('K')->setWidth('30');
-			$spreadsheet->getActiveSheet()->getColumnDimension('L')->setWidth('30');
-			$spreadsheet->getActiveSheet()->getColumnDimension('M')->setWidth('25');
+			$spreadsheet->getActiveSheet()->getColumnDimension('L')->setWidth('25');
         }
         // tulis dalam format .xlsx
         $writer = new Xlsx($spreadsheet);

@@ -360,26 +360,25 @@ class Surat_masuk extends BaseController
 
 		//Style Judul table
 		$spreadsheet->getActiveSheet()
-			->getStyle('A1:L1')
+			->getStyle('A1:K1')
 			->applyFromArray($styleJudul);
 		$spreadsheet->getActiveSheet()
-			->getStyle('A1:L1')
+			->getStyle('A1:K1')
 			->applyFromArray($styleBorder);
     
 		// tulis header/nama kolom 
         $spreadsheet->setActiveSheetIndex(0)
                     ->setCellValue('A1', 'No.')
-                    ->setCellValue('D1', 'No. Surat')
+                    ->setCellValue('B1', 'No. Surat')
                     ->setCellValue('C1', 'Tanggal Surat')
                     ->setCellValue('D1', 'Tanggal Diterima')
                     ->setCellValue('E1', 'Perihal')
                     ->setCellValue('F1', 'Pengirim')
-                    ->setCellValue('G1', 'Pengolah')
-                    ->setCellValue('H1', 'KTJ')
-                    ->setCellValue('I1', 'Disposisi Waseskab')
-                    ->setCellValue('J1', 'Disposisi Deputi')
-                    ->setCellValue('K1', 'Disposisi Kapus')
-                    ->setCellValue('L1', 'Link Netbox')
+                    ->setCellValue('G1', 'Pengolah - KTJ')
+                    ->setCellValue('H1', 'Disposisi Waseskab')
+                    ->setCellValue('I1', 'Disposisi Deputi')
+                    ->setCellValue('J1', 'Disposisi Kapus')
+                    ->setCellValue('K1', 'Link Netbox')
                     ;
         
         $column = 2;
@@ -393,12 +392,11 @@ class Surat_masuk extends BaseController
                         ->setCellValue('D' . $column, $data['tgl_diterima'])
                         ->setCellValue('E' . $column, $data['perihal'])
                         ->setCellValue('F' . $column, $data['pengirim'])
-                        ->setCellValue('G' . $column, $data['username'].' - '.$data['nama_divisi'])
-                        ->setCellValue('H' . $column, $data['kode_tugas'])
-                        ->setCellValue('I' . $column, $data['disposisi_waseskab'])
-                        ->setCellValue('J' . $column, $data['disposisi_deputi'])
-                        ->setCellValue('K' . $column, $data['disposisi_kapus'])
-                        ->setCellValue('L' . $column, $data['link']);
+                        ->setCellValue('G' . $column, $data['nama_divisi'].' - '.$data['kode_tugas'])
+                        ->setCellValue('H' . $column, $data['disposisi_waseskab'])
+                        ->setCellValue('I' . $column, $data['disposisi_deputi'])
+                        ->setCellValue('J' . $column, $data['disposisi_kapus'])
+                        ->setCellValue('K' . $column, $data['link']);
 
 			$spreadsheet->getActiveSheet()->getStyle('A' . $column)->applyFromArray($styleBorder);
 			$spreadsheet->getActiveSheet()->getStyle('B' . $column)->applyFromArray($styleBorder);
@@ -410,8 +408,7 @@ class Surat_masuk extends BaseController
 			$spreadsheet->getActiveSheet()->getStyle('H' . $column)->applyFromArray($styleBorder);
 			$spreadsheet->getActiveSheet()->getStyle('I' . $column)->applyFromArray($styleBorder);
 			$spreadsheet->getActiveSheet()->getStyle('J' . $column)->applyFromArray($styleBorder);         
-			$spreadsheet->getActiveSheet()->getStyle('K' . $column)->applyFromArray($styleBorder);         
-			$spreadsheet->getActiveSheet()->getStyle('L' . $column)->applyFromArray($styleBorder);          
+			$spreadsheet->getActiveSheet()->getStyle('K' . $column)->applyFromArray($styleBorder);           
 			
 			$spreadsheet->getActiveSheet()->getStyle($column)->getAlignment()->setVertical(Alignment::VERTICAL_CENTER);
 			$spreadsheet->getActiveSheet()->getStyle('A' . $column)->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -426,12 +423,11 @@ class Surat_masuk extends BaseController
 			$spreadsheet->getActiveSheet()->getColumnDimension('D')->setWidth('25');
 			$spreadsheet->getActiveSheet()->getColumnDimension('E')->setWidth('25');
 			$spreadsheet->getActiveSheet()->getColumnDimension('F')->setWidth('25');
-			$spreadsheet->getActiveSheet()->getColumnDimension('G')->setWidth('25');
-			$spreadsheet->getActiveSheet()->getColumnDimension('H')->setWidth('25');
+			$spreadsheet->getActiveSheet()->getColumnDimension('G')->setWidth('30');
+			$spreadsheet->getActiveSheet()->getColumnDimension('H')->setWidth('30');
 			$spreadsheet->getActiveSheet()->getColumnDimension('I')->setWidth('30');
 			$spreadsheet->getActiveSheet()->getColumnDimension('J')->setWidth('30');
-			$spreadsheet->getActiveSheet()->getColumnDimension('K')->setWidth('30');
-			$spreadsheet->getActiveSheet()->getColumnDimension('L')->setWidth('25');
+			$spreadsheet->getActiveSheet()->getColumnDimension('K')->setWidth('25');
         }
         // tulis dalam format .xlsx
         $writer = new Xlsx($spreadsheet);

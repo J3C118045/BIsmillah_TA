@@ -20,7 +20,8 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">E-JFP | Internal</h1>
+                                        <h1 class="h4 text-gray-900 mb-2"><?= $title; ?></h1>
+                                        <p class="mb-4">Silahkan masukkan alamat email Anda dan kami akan mengirimkan tautan untuk mengatur ulang kata sandi Anda.</p>
                                     </div>
                                     <?php 
                                     $errors = session()->getFlashdata('errors');
@@ -48,11 +49,11 @@
                                                 placeholder="Masukkan Username atau Email Anda">
                                         </div>
                                         <button class="btn btn-primary btn-user btn-block">
-                                            Forgot Password
+                                            Lanjutkan
                                         </button>
                                         <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?= base_url('auth') ?>">Sudah Ingat Kata Sandi Anda?</a>
+                                        <a class="small" href="<?= base_url('auth') ?>">Sudah Ingat Kata Sandi Anda? Masuk!</a>
                                     </div>
                                         
                                     <?php form_close() ?>

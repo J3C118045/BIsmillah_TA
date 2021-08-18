@@ -20,7 +20,8 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">E-JFP | Internal | <?= $title; ?></h1>
+                                        <h1 class="h4 text-gray-900 mb-2"><?= $title; ?></h1>
+                                        <p class="mb-4">Silahkan Buat Kata Sandi Baru. </p>
                                     </div>
                                     <?php 
                                     $errors = session()->getFlashdata('errors');
@@ -46,14 +47,14 @@
                                         <input type="hidden" value="<?= $token ?>" name='token'>
                                         <div class="form-group">
                                             <input type="password" name="password" class="form-control form-control-user border-left-primary"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="exampleInputPassword" placeholder="Kata Sandi">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="cpassword" class="form-control form-control-user border-left-primary"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="exampleInputPassword" placeholder="Masukkan Ulang Kata Sandi">
                                         </div>
                                         <button class="btn btn-primary btn-user btn-block">
-                                            Login
+                                            Atur Ulang Kata Sandi
                                         </button>
                                         <hr>
                                         

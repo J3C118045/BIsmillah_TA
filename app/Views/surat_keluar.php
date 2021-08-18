@@ -149,7 +149,7 @@
                             <div class="modal-body">
                                 <?php echo form_open('surat_keluar/save');
                                     helper('text'); 
-                                    $no_arsip = random_string('numeric', 5). '/ARSIP/' .date('m/Y');
+                                    // $no_arsip = random_string('numeric', 5). '/ARSIP/' .date('m/Y');
                                 ?>
 
                                 
@@ -174,10 +174,7 @@
                                     </select>
                                 </div>
 
-                                <!-- <div class="form-group">
-                                    <label>No. Arsip</label>
-                                    <input type="text" class="form-control border-left-info" name="no_arsip" value="<?= $no_arsip ?>" readonly>
-                                </div> -->
+                                
                             
                                 <div class="form-group">
                                     <label>No. Surat</label>
@@ -297,10 +294,7 @@
                                     <input type="text" class="form-control border-left-info" name="no_surat" value="<?= $value['no_surat'] ?>" placeholder="Masukkan Nomor Surat" required>
                                 </div> -->
                                 
-                                <div class="form-group">
-                                    <label>No. Arsip</label>
-                                    <input type="text" class="form-control border-left-info" name="no_arsip" value="<?= $value['no_arsip'] ?>" readonly>
-                                </div>
+                                
 
                                 <div class="form-group">
                                     <label>No. Surat</label>

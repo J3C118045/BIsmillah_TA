@@ -57,7 +57,7 @@
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password" class="form-control form-control-user border-left-primary"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="exampleInputPassword" placeholder="Masukkan Kata Sandi Anda">
                                         </div>
                                         <button class="btn btn-primary btn-user btn-block">
                                             Login
