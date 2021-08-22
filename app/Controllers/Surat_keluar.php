@@ -263,6 +263,31 @@ class Surat_keluar extends BaseController
 
         $spreadsheet = new Spreadsheet();
 
+		$styleTitle = [
+            'font' => [
+                'color' => [
+                    'rgb' => '000000'
+                ],
+                'bold'=>true,
+                'size'=>14
+            ],
+            // 'fill'=>[
+            //     'fillType' =>  fill::FILL_SOLID,
+            //     'startColor' => [
+            //         'rgb' => 'd7f1f5'
+            //     ]
+            // ],
+            'alignment'=>[
+                'horizontal' => Alignment::HORIZONTAL_CENTER,
+				'vertical'	 => Alignment::VERTICAL_CENTER
+            ], 
+            /* 'borders' => [
+                'bottom' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN
+                ]
+                ],  */
+        ];
+
 		$styleJudul = [
             'font' => [
                 'color' => [
@@ -313,31 +338,47 @@ class Surat_keluar extends BaseController
 		->setName('Arial')
 		->setSize(10);
 
+		//Style Title Excel
+		$spreadsheet->getActiveSheet()
+		->getStyle('A1:L1')
+		->applyFromArray($styleTitle);
+		$spreadsheet->getActiveSheet()
+		->mergeCells('A1:L1');
+		$spreadsheet->getActiveSheet()
+		->setCellValue('A1', 'Rekapitulasi Data Surat Keluar');
+		$spreadsheet->getActiveSheet()
+		->getStyle('A2:L2')
+		->applyFromArray($styleTitle);
+		$spreadsheet->getActiveSheet()
+		->mergeCells('A2:L2');
+		$spreadsheet->getActiveSheet()
+		->setCellValue('A2', date('Y'));
+
 		//Style Judul table
 		$spreadsheet->getActiveSheet()
-			->getStyle('A1:L1')
+			->getStyle('A3:L3')
 			->applyFromArray($styleJudul);
 		$spreadsheet->getActiveSheet()
-			->getStyle('A1:L1')
+			->getStyle('A3:L3')
 			->applyFromArray($styleBorder);
 
         // tulis header/nama kolom 
         $spreadsheet->setActiveSheetIndex(0)
-                    ->setCellValue('A1', 'No.')
-                    ->setCellValue('B1', 'No. Surat')
-                    ->setCellValue('C1', 'Tanggal Surat')
-                    ->setCellValue('D1', 'Tanggal Kirim')
-                    ->setCellValue('E1', 'Pengolah - KTJ')
-                    ->setCellValue('F1', 'Perihal')
-                    ->setCellValue('G1', 'Tujuan')
-                    ->setCellValue('H1', 'Disposisi Seskab')
-                    ->setCellValue('I1', 'Disposisi Waseskab')
-                    ->setCellValue('J1', 'Disposisi Deputi')
-                    ->setCellValue('K1', 'Disposisi Kapus')
-                    ->setCellValue('L1', 'Link Netbox')
+                    ->setCellValue('A3', 'No.')
+                    ->setCellValue('B3', 'No. Surat')
+                    ->setCellValue('C3', 'Tanggal Surat')
+                    ->setCellValue('D3', 'Tanggal Kirim')
+                    ->setCellValue('E3', 'Pengolah - KTJ')
+                    ->setCellValue('F3', 'Perihal')
+                    ->setCellValue('G3', 'Tujuan')
+                    ->setCellValue('H3', 'Disposisi Seskab')
+                    ->setCellValue('I3', 'Disposisi Waseskab')
+                    ->setCellValue('J3', 'Disposisi Deputi')
+                    ->setCellValue('K3', 'Disposisi Kapus')
+                    ->setCellValue('L3', 'Link Netbox')
                     ;
         
-        $column = 2;
+        $column = 4;
         $i = 1;
         // tulis data mobil ke cell
         foreach($datasuratKeluar as $data) {
@@ -390,11 +431,11 @@ class Surat_keluar extends BaseController
         // tulis dalam format .xlsx
         $writer = new Xlsx($spreadsheet);
         $fileName = 'Data Rekap Surat Keluar ';
-		$date = date('Y-M-D');
+		// $date = date('Y-M-D');
 
         // Redirect hasil generate xlsx ke web client
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment;filename='.$fileName.$date.'.xlsx');
+        header('Content-Disposition: attachment;filename='.$fileName.'.xlsx');
         header('Cache-Control: max-age=0');
 
         $writer->save('php://output');

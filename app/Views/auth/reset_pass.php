@@ -15,7 +15,7 @@
                         <div class="row">
                         <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"> -->
                             <img class="col-lg-6 d-none d-lg-block bg-login-image" 
-                                src="<?= base_url(); ?>/img/img_login.jpg" alt="">
+                                src="<?= base_url(); ?>/img/img_forgot.jpg" alt="">
                         <!-- </div> -->
                             <div class="col-lg-6">
                                 <div class="p-5">

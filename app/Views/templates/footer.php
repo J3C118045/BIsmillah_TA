@@ -243,36 +243,55 @@
                     "dom": " <'row'<'col-sm-3'l><'col-sm-4'<'datesearchbox'>><'col-sm-2'Brt><'col-sm-3'f>>" +
                     "<'row'<'col-sm-12'tr>>" +
                     "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+                    bInfo : false,
                     buttons: [
                         {
                             "extend": 'excelHtml5',
                             "text": '<div class="btn btn-success">Cetak Data</div>', 
-                            "className": 'excelButton btn-success py-0 px-0 border-0 rounded',
+                            "className": 'excelButton btn-success py-0 px-0 border-0 rounded dt-head-center',
+
                             "customize" : function ( xlsx ){
                             var sheet = xlsx.xl.worksheets['sheet1.xml'];
             
                             // // jQuery selector to add a border
                             // $('row c[r^="s-0"]', sheet).attr( 's', '25' );
+                                // $('c[r^="A1"]', sheet).attr( 's', '2' );
 
-                                var loop = 0;
-                                $('row', sheet).each(function () {
-                                $(this).find("c").attr('s', '25');
-                                loop++;
+                                // var loop = 0;
+                                // $('row', sheet).each(function () {
+                                // $(this).find("c").attr('s', '25');
+                                // loop++;
+                                // });
+                                // $('row:first c', sheet).attr( 's', '2' );
+                                // $('row:eq(0) c', sheet).attr( 's', '51' );
+                                // $('row c[r*="A"]', sheet).attr('Alignment horizontal', 'center');
+                                // $('row c:eq(-2) [r^="A"]', sheet).attr( 's', '2' );
+                                
+
+                                // Loop over the cells
+                                $('row c', sheet).each(function() {
+                                //select the index of the row
+                                var numero=$(this).parent().index() ;
+                                    var residuo = numero%2;
+                                    if (numero==1){           
+                                        $(this).attr('s', '47');
+                                        // $(this).attr('s', '25');
+                                        //22 - Bold, blue background
+                                    }else if (numero>1){
+                                        if(residuo ==0  ){//'is t',
+                                        $(this).attr('s','0');//25 - Normal text, fine black border
+                                        }else{
+                                        $(this).attr('s','5');//32 - Bold, gray background, fine black border
+                                        }
+                                    }
+                                    
                                 });
-                                $('row:second c', sheet).attr( 's', '2' );
-                                $('row:second c', sheet).attr( 's', '51' );
+
                             }
                         },
                     ],
                     // order: [0, 'desc']
                 });
-
-                // $('#reportTable').DataTable( {
-                //     dom: 'Bfrtip',
-                //     buttons: [
-                //         'excel',
-                //     ]
-                // });
 
                 //menambahkan daterangepicker di dalam datatables
                 $("div.datesearchbox").html('<div class="input-group mb-2"> <div class="input-group-addon"> <i class="glyphicon glyphicon-calendar"></i> </div><input type="text" class="form-control pull-right" id="datesearch" placeholder="Cari Berdasarkan Rentang Tanggal.."> </div>');

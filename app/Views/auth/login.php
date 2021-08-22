@@ -31,6 +31,9 @@
                                                     <li><?= esc($value) ?></li>
                                                 <?php }  ?>
                                             </ul>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
                                     <?php } ?>
                                     <?php
@@ -38,6 +41,9 @@
                                             echo '<div class="alert alert-danger alert-dismissible">';
                                             echo session()->getFlashdata('pesan');
                                             echo session()->getFlashdata('username');
+                                            echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>';
                                             echo '</div>';
                                         };
                                     ?>
@@ -46,6 +52,9 @@
                                             echo '<div class="alert alert-success alert-dismissible">';
                                             echo session()->getFlashdata('sukses');
                                             echo session()->getFlashdata('username');
+                                            echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>';
                                             echo '</div>';
                                         };
                                     ?>

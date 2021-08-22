@@ -166,8 +166,8 @@ class Auth extends BaseController
         return redirect()->to(base_url('auth/forgot'));
         }
         // dd($this->reset_pass->Search_Token($this->request->getVar('token')));
-        session()->setFlashdata('pesan', "Password Berhasil di reset");
-        return redirect()->to(base_url('auth/login'));
+        session()->setFlashdata('sukses', "Password Berhasil di reset");
+        return redirect()->to(base_url('auth'));
     }
     
 

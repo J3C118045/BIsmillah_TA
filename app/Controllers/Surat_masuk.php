@@ -105,72 +105,62 @@ class Surat_masuk extends BaseController
 	{
 		if ($this->validate([
 			'no_surat'	=> [
-				'label'	=> 'No. Surat',
 				'rules'	=> 'required|is_unique[surat_masuk.no_surat]',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
-					'is_unique'	=> '{field} sudah digunakan, harap periksa kembali...'
+					'required'	=> 'No. Surat Wajib diisi !!!',
+					'is_unique'	=> 'No. Surat sudah digunakan, harap periksa kembali...'
 				]
 			],
 			'tgl_surat'	=> [
-				'label'	=> 'Tanggal Surat',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> 'Tanggal Surat Wajib diisi !!!',
 				]
 			],
 			'tgl_diterima'	=> [
-				'label'	=> 'Tanggal Diterima',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> 'Tanggal Diterima Wajib diisi !!!',
 				]
 			],
 			'divisi'	=> [
-				'label'	=> 'Bidang / Bagian',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> 'Bidang / Bagian Wajib diisi !!!',
 				]
 			],
 			'no_ktj'	=> [
-				'label'	=> 'No. KTJ',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> 'No. KTJ Wajib diisi !!!',
 				]
 			],
 			'kategori'	=> [
-				'label'	=> 'Jenis Surat',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> 'Jenis Surat Wajib diisi !!!',
 				]
 			],
 			'pengirim'	=> [
-				'label'	=> 'Pengirim',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> 'Pengirim Wajib diisi !!!',
 				]
 			],
 			'link'	=> [
-				'label'	=> 'Link Netbox',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> 'Link Netbox Wajib diisi !!!',
 				]
 			],
 			'status'	=> [
-				'label'	=> 'Status',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> 'Status Wajib diisi !!!',
 				]
 			],
 		])) {
 			$data = array(
-				// 'tgl_upload'			=> date('Y-m-d-H:m'),
 				'kategori'				=> $this->request->getPost('kategori'),
 				'divisi'				=> $this->request->getPost('divisi'),
 				'no_ktj'				=> $this->request->getPost('no_ktj'),
@@ -193,7 +183,6 @@ class Surat_masuk extends BaseController
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
             return redirect()->to(base_url('surat_masuk'));
 		}
-		
 	}
 
 	public function update()
@@ -308,6 +297,31 @@ class Surat_masuk extends BaseController
 
         $spreadsheet = new Spreadsheet();
 
+		$styleTitle = [
+            'font' => [
+                'color' => [
+                    'rgb' => '000000'
+                ],
+                'bold'=>true,
+                'size'=>14
+            ],
+            // 'fill'=>[
+            //     'fillType' =>  fill::FILL_SOLID,
+            //     'startColor' => [
+            //         'rgb' => 'd7f1f5'
+            //     ]
+            // ],
+            'alignment'=>[
+                'horizontal' => Alignment::HORIZONTAL_CENTER,
+				'vertical'	 => Alignment::VERTICAL_CENTER
+            ], 
+            /* 'borders' => [
+                'bottom' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN
+                ]
+                ],  */
+        ];
+
 		$styleJudul = [
             'font' => [
                 'color' => [
@@ -358,30 +372,46 @@ class Surat_masuk extends BaseController
 		->setName('Arial')
 		->setSize(10);
 
+		//Style Title Excel
+		$spreadsheet->getActiveSheet()
+		->getStyle('A1:K1')
+		->applyFromArray($styleTitle);
+		$spreadsheet->getActiveSheet()
+		->mergeCells('A1:K1');
+		$spreadsheet->getActiveSheet()
+		->setCellValue('A1', 'Rekapitulasi Data Surat Masuk');
+		$spreadsheet->getActiveSheet()
+		->getStyle('A2:K2')
+		->applyFromArray($styleTitle);
+		$spreadsheet->getActiveSheet()
+		->mergeCells('A2:K2');
+		$spreadsheet->getActiveSheet()
+		->setCellValue('A2', date('Y'));
+
 		//Style Judul table
 		$spreadsheet->getActiveSheet()
-			->getStyle('A1:K1')
+			->getStyle('A3:K3')
 			->applyFromArray($styleJudul);
 		$spreadsheet->getActiveSheet()
-			->getStyle('A1:K1')
+			->getStyle('A3:K3')
 			->applyFromArray($styleBorder);
     
 		// tulis header/nama kolom 
         $spreadsheet->setActiveSheetIndex(0)
-                    ->setCellValue('A1', 'No.')
-                    ->setCellValue('B1', 'No. Surat')
-                    ->setCellValue('C1', 'Tanggal Surat')
-                    ->setCellValue('D1', 'Tanggal Diterima')
-                    ->setCellValue('E1', 'Perihal')
-                    ->setCellValue('F1', 'Pengirim')
-                    ->setCellValue('G1', 'Pengolah - KTJ')
-                    ->setCellValue('H1', 'Disposisi Waseskab')
-                    ->setCellValue('I1', 'Disposisi Deputi')
-                    ->setCellValue('J1', 'Disposisi Kapus')
-                    ->setCellValue('K1', 'Link Netbox')
+                    ->setCellValue('A3', 'No.')
+                    ->setCellValue('B3', 'No. Surat')
+                    ->setCellValue('C3', 'Tanggal Surat')
+                    ->setCellValue('D3', 'Tanggal Diterima')
+                    ->setCellValue('E3', 'Perihal')
+                    ->setCellValue('F3', 'Pengirim')
+                    ->setCellValue('G3', 'Pengolah - KTJ')
+                    ->setCellValue('H3', 'Disposisi Waseskab')
+                    ->setCellValue('I3', 'Disposisi Deputi')
+                    ->setCellValue('J3', 'Disposisi Kapus')
+                    ->setCellValue('K3', 'Link Netbox')
                     ;
         
-        $column = 2;
+        $column = 4;
         $i = 1;
         // tulis data mobil ke cell
         foreach($datasuratMasuk as $data) {
