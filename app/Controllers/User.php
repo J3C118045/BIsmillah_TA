@@ -113,7 +113,7 @@ class User extends BaseController
                 $this->user->updateUser($data);
 			}
 			// $this->user->updateUser($data);
-			session()->setFlashdata('pesan', 'Data berhasil diubah...');
+			session()->setFlashdata('pesan', 'Profil berhasil diubah...');
 			return redirect()->to(base_url('user'));
 		} else {
 			//if not valid

@@ -48,7 +48,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table row-border" id="dataTable" width="100%" cellspacing="0">
-                                    <thead >
+                                    <thead style=" background: #d7f1f5;">
                                     <tr>
                                             <th style="vertical-align: middle;" class="text-center">No.</th>
                                             <th style="vertical-align: middle;">Username</th>

@@ -103,21 +103,21 @@ class Surat_usulan extends BaseController
 				]
 			],
 		])) {
-            $data = array(
-                'no_surat'      => $this->request->getPost('no_surat'),
-                'tgl_surat'     => $this->request->getPost('tgl_surat'),
-                'tgl_diterima'  => $this->request->getPost('tgl_diterima'),
-                'kategori'      => $this->request->getPost('kategori'),
-                'divisi'        => session()->get('id_divisi'),
-                'user'          => session()->get('id_user'),
-                'perihal'       => $this->request->getPost('perihal'),
-                'pengirim'      => $this->request->getPost('pengirim'),
-                'link'          => $this->request->getPost('link'),
-                'status'        => $this->request->getPost('status'),
-            );
-            $this->usulan->saveUsulan($data);
-            session()->setFlashdata('pesan', 'Surat Usulan berhasil ditambahkan...');
-            return redirect()->to(base_url('surat_usulan'));
+$data = array(
+    'no_surat'      => $this->request->getPost('no_surat'),
+    'tgl_surat'     => $this->request->getPost('tgl_surat'),
+    'tgl_diterima'  => $this->request->getPost('tgl_diterima'),
+    'kategori'      => $this->request->getPost('kategori'),
+    'divisi'        => session()->get('id_divisi'),
+    'user'          => session()->get('id_user'),
+    'perihal'       => $this->request->getPost('perihal'),
+    'pengirim'      => $this->request->getPost('pengirim'),
+    'link'          => $this->request->getPost('link'),
+    'status'        => $this->request->getPost('status'),
+);
+$this->usulan->saveUsulan($data);
+session()->setFlashdata('pesan', 'Surat Usulan berhasil ditambahkan...');
+return redirect()->to(base_url('surat_usulan'));
         }
         session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
         return redirect()->to(base_url('surat_usulan'));

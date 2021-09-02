@@ -160,25 +160,25 @@ class Surat_masuk extends BaseController
 				]
 			],
 		])) {
-			$data = array(
-				'kategori'				=> $this->request->getPost('kategori'),
-				'divisi'				=> $this->request->getPost('divisi'),
-				'no_ktj'				=> $this->request->getPost('no_ktj'),
-				'user'					=> session()->get('id_user'),
-				'no_surat'				=> $this->request->getPost('no_surat'),
-				'tgl_surat'				=> $this->request->getPost('tgl_surat'),
-				'tgl_diterima'			=> $this->request->getPost('tgl_diterima'),
-				'pengirim'				=> $this->request->getPost('pengirim'),
-				'perihal'				=> $this->request->getPost('perihal'),
-				'disposisi_waseskab'	=> $this->request->getPost('disposisi_waseskab'),
-				'disposisi_deputi'		=> $this->request->getPost('disposisi_deputi'),
-				'disposisi_kapus'		=> $this-> request->getPost('disposisi_kapus'),
-				'link'					=> $this->request->getPost('link'),
-				'status'				=> $this->request->getPost('status'),
-			);
-			$this->surat_masuk->saveSuratMasuk($data);
-			session()->setFlashdata('pesan', 'Surat Masuk berhasil ditambahkan...');
-			return redirect()->to(base_url('surat_masuk'));
+$data = array(
+	'kategori'				=> $this->request->getPost('kategori'),
+	'divisi'				=> $this->request->getPost('divisi'),
+	'no_ktj'				=> $this->request->getPost('no_ktj'),
+	'user'					=> session()->get('id_user'),
+	'no_surat'				=> $this->request->getPost('no_surat'),
+	'tgl_surat'				=> $this->request->getPost('tgl_surat'),
+	'tgl_diterima'			=> $this->request->getPost('tgl_diterima'),
+	'pengirim'				=> $this->request->getPost('pengirim'),
+	'perihal'				=> $this->request->getPost('perihal'),
+	'disposisi_waseskab'	=> $this->request->getPost('disposisi_waseskab'),
+	'disposisi_deputi'		=> $this->request->getPost('disposisi_deputi'),
+	'disposisi_kapus'		=> $this->request->getPost('disposisi_kapus'),
+	'link'					=> $this->request->getPost('link'),
+	'status'				=> $this->request->getPost('status'),
+);
+$this->surat_masuk->saveSuratMasuk($data);
+session()->setFlashdata('pesan', 'Surat Masuk berhasil ditambahkan...');
+return redirect()->to(base_url('surat_masuk'));
 		} else {
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
             return redirect()->to(base_url('surat_masuk'));
