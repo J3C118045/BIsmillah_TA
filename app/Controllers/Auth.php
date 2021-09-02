@@ -129,6 +129,12 @@ class Auth extends BaseController
 
     public function reset_pass($token)
     {
+        $tokens = $this->reset_pass->Search_Token($token);
+        if ($tokens['keterangan'] == 1 ) {
+            
+        session()->setFlashdata('pesan', 'Token Sudah Pernah digunakan');
+        return redirect()->to(base_url('auth/forgot'));
+        }
         $data = array(
 			'title'		  => 'Atur Ulang Kata Sandi Anda',
             'token'        => $token,
@@ -161,6 +167,7 @@ class Auth extends BaseController
                 $token['id_user'],
                 password_hash($this->request->getVar('cpassword'), PASSWORD_DEFAULT)
             );
+            $this->reset_pass->usedToken($this->request->getVar('token'));
         } else {
         session()->setFlashdata('pesan', 'Token Sudah Pernah digunakan');
         return redirect()->to(base_url('auth/forgot'));
