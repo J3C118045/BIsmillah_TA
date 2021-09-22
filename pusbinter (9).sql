@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2021 at 06:02 PM
+-- Generation Time: Sep 22, 2021 at 04:35 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -244,7 +244,7 @@ CREATE TABLE `penerjemah` (
   `jabatan` enum('Penerjemah Ahli Pertama','Penerjemah Ahli Muda','Penerjemah Ahli Madya','Penerjemah Ahli Utama') DEFAULT NULL,
   `tmtjab` date DEFAULT NULL,
   `id_instansi_penerjemah` int(10) DEFAULT NULL,
-  `status` enum('Aktif','Tidak Aktif','','') DEFAULT NULL
+  `status` enum('Aktif','Tidak Aktif') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -252,7 +252,7 @@ CREATE TABLE `penerjemah` (
 --
 
 INSERT INTO `penerjemah` (`id_penerjemah`, `nama`, `nip`, `tempat`, `tanggal_lahir`, `email`, `telepon`, `golongan`, `tmtgol`, `jabatan`, `tmtjab`, `id_instansi_penerjemah`, `status`) VALUES
-(1, 'Nur Azizah, S.S.', '198209082009042005', 'JAKARTA', '1990-11-30', 'hubbinafillah@gmail.com', '081311483547', 'III/c/Penata', '2019-03-20', 'Penerjemah Ahli Muda', '2019-03-20', 70, 'Aktif'),
+(1, 'Nur Azizah, S.S.', '198209082009042005', 'JAKARTA', '1990-11-30', 'hubbinafillah@gmail.com', '081311483547', 'III/c/Penata', '2019-03-20', 'Penerjemah Ahli Muda', '2019-03-20', 70, 'Tidak Aktif'),
 (2, 'Penni Patmawati Rusman, S.S.', '198609092009012001', 'SUKABUMI', '1986-09-09', 'penni.patmawati@gmail.com', '08562263922', 'IV/a/Pembina', '2019-07-26', 'Penerjemah Ahli Madya', '2019-07-26', 21, 'Aktif'),
 (3, 'Ratna Dibyaningtyas Margitarina,S.Sos.MA', '197312162006042002', 'SEMARANG', '1973-12-16', 'mratnadibyaningtyas@yahoo.com', '081931973081', 'III/b/Penata Muda Tingkat I', '2013-01-01', 'Penerjemah Ahli Pertama', '2013-01-01', 22, 'Aktif'),
 (4, 'Ratna Mala Sukma, S.S.', '198005262006042001', 'MANOKWARI', '1980-05-26', 'ratnamalasukma@yahoo.com', '081344379989', 'III/d/Penata Tingkat I', '2016-11-01', 'Penerjemah Ahli Muda', '2016-11-01', 36, 'Aktif'),
@@ -462,7 +462,79 @@ INSERT INTO `penerjemah` (`id_penerjemah`, `nama`, `nip`, `tempat`, `tanggal_lah
 (208, 'Noezafri Amar, S.S., M.Pd.', '197311042006041001', 'PADANG PANJANG', '1973-11-04', 'noezafriamar73@gmail.com', '08127610842', 'III/c/Penata', '2017-01-01', 'Penerjemah Ahli Muda', '2017-01-01', 44, 'Aktif'),
 (209, 'Novri Helmawan, S.Pd.', '197711132009121002', 'JAKARTA', '1977-11-13', 'nhelmawan@gmail.com', '08129240516', 'III/c/Penata', '2017-02-01', 'Penerjemah Ahli Muda', '2017-02-01', 124, 'Aktif'),
 (210, 'Yuni Yulianita, S.S.', '198306292008121001', 'PALEMBANG', '1983-06-29', 'yyulianita@gmail.com', '085220055969', 'III/c/Penata', '2017-04-01', 'Penerjemah Ahli Muda', '2021-02-07', 127, 'Aktif'),
-(211, 'Priskilla Siregar., S.Sos', '198311222008122001', 'JAKARTA', '1983-11-22', 'priskilla@komisiyudisial.go.id', '081280091413', 'III/c/Penata', '2017-03-31', 'Penerjemah Ahli Muda', '2021-02-17', 127, 'Aktif');
+(211, 'Priskilla Siregar., S.Sos', '198311222008122001', 'JAKARTA', '1983-11-22', 'priskilla@komisiyudisial.go.id', '081280091413', 'III/c/Penata', '2017-03-31', 'Penerjemah Ahli Muda', '2021-02-17', 127, 'Aktif'),
+(212, 'John Doe', '20000614202206140012', 'Osaka', '2000-06-14', 'John.Doe@gmail.com', '089612345678', 'II/c/Pengatur', '2021-06-14', 'Penerjemah Ahli Muda', '2021-06-14', 29, 'Aktif');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reset_password`
+--
+
+CREATE TABLE `reset_password` (
+  `id_token` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `keterangan` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reset_password`
+--
+
+INSERT INTO `reset_password` (`id_token`, `id_user`, `token`, `keterangan`) VALUES
+(1, 21, 'YtaqrP75yKQMvcFfmL6owGD1l9UVNkxbZhOBgI4niTuzSpE0A2', 0),
+(2, 21, 'Euk9UgdyhzmnJeIrp0D1TVGljQfSvZwL2tF3Hqsi8AB7bXCa4W', 0),
+(3, 21, 'J47EndqrylhTeICZcmkz8ND0pjMaw3FbG6oR9HxYuLPtWOSXgf', 0),
+(4, 21, 'MYAkJWH23xF8gERcwL0Gu1vZTV5ftmoNys6dPbqDaQhn7rzBlU', 0),
+(5, 21, '4gHvDLV120iKUtOYJ5jApmFXG8NbhQwC3RWqkZoeaxrzBsyud7', 0),
+(6, 21, 'LOobM06Ze2wYKEfhS1FG5akPIUNXAtvn8quyHzxcVd3jRQrT9m', 0),
+(7, 21, 'MZhxVOj9zNcepgfCn2votwHAPIrDSiXs71B4dUYlu8JGEqFyQ0', 0),
+(8, 21, 'ohqpCjn4O7t9JDHsRiIPFZB5dMNk2cguXVWYfybS6zALUemraG', 0),
+(9, 21, 'jksfcma90NGYtM2U8FKxXlhOn5QPZETLDJo4erBiqgd6SAybIu', 0),
+(10, 21, '2LRTedAmHJ658iaUGIvcl7MQXYrwNVn93pDxjEg1z0SFOWKtPf', 0),
+(11, 21, 'C067EyrYucDl1fmAntZ8WxVLKTHdv29eMwgOp3ba54oGihNQXP', 0),
+(12, 21, '2FnvaupwlbdIozJhY5syXAEe6gWTL7i81ScBV3rQm0fMKqj9Hx', 0),
+(13, 21, 'x2Fv0RIB3AOeLt58akC9HEybgnzwYTJlZrpMc7VUm4KPXNu6S1', 0),
+(14, 21, 'm1cTMRIYErWiewbzSL72VfUZN8ByvnQhsHxXFq5C0Aku4KdjG3', 0),
+(15, 21, 'TMgrmsIScbxwpPvfQKCJoqhBXGYyiaA71nLulD60Z5ERkWVdFN', 0),
+(16, 21, 'nQvelW7ExLtuz81K9HrTcqks60dMjYPGpghCZX5bNiB3VFA4SR', 0),
+(17, 21, 'YyQdt6aBwk8JOHhZp1vR7qliCAzS3FNLngToMEKGx9eufP0Xcb', 0),
+(18, 21, 'NU1JR2S6QxpZjYivzKt5DqgHFMdhX9IleEWs3fm0PoaTwrOckB', 0),
+(19, 21, 'SzCPqWabLyFdHYtmsh5pgI7QR8n1DK2iX6jlOxwcvr4NeZVM0J', 0),
+(20, 21, 'vhk4fSHsoCP2tTGIxV5KiparN9OuB1ceRJbAn6QW7zY8gLjFlU', 0),
+(21, 21, 'Qt90kzAPnDslrpihNdKCRVGSOawY2IH86vm1eo4ZBqbjMgxu5W', 0),
+(22, 21, 'NTPpO8AiZkWxgqSheCzMyoduc9UJtG6VHbfFK2E3Qmsj7XvLlR', 0),
+(23, 21, 'feAUCHZ4oVdwXl1IErO09jahupJFt7nPi32TYSNzqcxgRB6vQK', 0),
+(24, 21, 'UweuMzD8XkfH9yQhA5PpRl2ImnSCEqNZYFj6orVLsav4OixK7B', 0),
+(25, 21, 'JlBGFv2ZxVguijNfUz7ambDh94kIqW81RPQC5oywsKO3nHSMEt', 0),
+(26, 21, '5SWyTuRMZ1PV4kE7NsQpoDGqncH0AjXvFUlLCf9YI2baBOzKwe', 0),
+(27, 21, 'c708IWMa2dFsfVkgXz6q1DperHyuhU9GtY4mxbAKR5nLJBoPN3', 0),
+(28, 1, 'zkXcG0fvHtgRQEU9aOKBC5x4d72WmpohiyYJIS16lMTqusNejw', 0),
+(29, 1, 'FN3Hs9OJlzT5cAGyVdnmaM4hRPWKfrpoZSjC7EQewLtUk28iI6', 0),
+(30, 21, '5jBNcr8fgJ7XbhzesQqwEk4mD1YHTlVF20uPy36OLKRS9WxvAt', 0),
+(31, 21, '1PlfQz3uoZcURXkqvnxVNbSwBOmpCdH7IFars4Eh6et9YG2j5D', 0),
+(32, 21, 'dQoPD5l029nt6krLzjvuZC1fc37MpIwgbWSHRTia4eAKNyBE8G', 0),
+(33, 21, 'vVEy3etn9b1IA4M6mTigRdxwslcSfN27Xka8jUqKLJ05CpPGoW', 0),
+(34, 21, 'LgJsjCRUAdHiTmSYeBcMu1kwya3QtqO2h6ovl748FV0b5zGZr9', 0),
+(35, 21, 'OJFoZU3kfPvsNLyA8cw4VhQYBzuRW7ipaS6lbmexd9DTXqIKr5', 0),
+(36, 2, 'zZnR1DMlGeo04xcpkSwE9UqgdOPjT8hVi5rFfaYyKJ7vBsIXNC', 0),
+(37, 2, 'oxMYqcHrJaXg35tbKURBwnAiGI64hPZCp7jQzeO02FDsNElWu1', 0),
+(38, 21, 'Az3wDiJCqE7lZRsyr62m8YUPM104Xtc9FKhfTeQvbHajguOopd', 0),
+(39, 21, 'SUrjF7b28fWdQLAhgXcR3DPIJ6Y4xkzB5uZH9tEsp1vCTGiyKl', 0),
+(40, 2, 'w5QdublmWpKr7sZyOYDIfRxT8Eq4932kGaXziCteVcHn0vUBgj', 0),
+(41, 21, 'uiwzjgXbtQ6Pqahf1NvT5F7DVmcA9yUEdY3W2RIZlxBrHOskeL', 0),
+(42, 21, '9Y3BgqvUaijLlrFb64KfscnOk1wPoHN0mQASEpCx5M27GXTIuh', 0),
+(43, 1, '4zqCpYQHhjo6bZsgRVA7FxkrSuIWteO8D2TXK93aEmfw5lPidy', 0),
+(44, 21, 'CUHDdFrjKBAlZ7f5hkEeJYaytvqIVn3xMgb1S0G9zcRmWOTs82', 0),
+(45, 21, 'z4NPdAHLUcKR2OXEGFeYy5lTIkBVjr1wgu8WnC7oZSq0JxbsDi', 0),
+(46, 21, 'xaD0yWE9348sugiSLR7M5VjoBIPlcYAkf1JdXK6hUFHbwpnCGT', 0),
+(47, 21, 'STLfjmg2cNaQuxb6vAy9kFoR1GICKlirZM8d0W43OPhJ5Hwe7V', 0),
+(49, 21, 'yODAShJI69tV2lcPvURnZ8M31Ksem0C7YrpkQLFbxTiu5HBzXW', 0),
+(50, 2, 'zf3WPohne8pB1lSLrvARxUiqjTb4dkI6t7VDZHgG9m0O2sJwQM', 0),
+(51, 2, 'bBjOrCHu5N2PLVdqYxefwQ3MAIK4tvalpEZiT0co8F96DU7kms', 0),
+(52, 2, 'BFksiZw1LPpvRm2gtfTycEbhGNCJz4n7I9DQ3d8oXxMSAO5Yj0', 1),
+(53, 21, 'LEndIyN3f4sbpC7XrlDuV2J80ZTzatxmW6PqOUoS1QKjwMG9YH', 1);
 
 -- --------------------------------------------------------
 
@@ -478,9 +550,8 @@ CREATE TABLE `surat_keluar` (
   `divisi` int(11) DEFAULT NULL,
   `no_ktj` int(11) DEFAULT NULL,
   `user` int(11) DEFAULT NULL,
-  `no_arsip` varchar(50) DEFAULT NULL,
   `tujuan` varchar(255) DEFAULT NULL,
-  `hal` text DEFAULT NULL,
+  `perihal` text DEFAULT NULL,
   `disposisi_seskab` text DEFAULT NULL,
   `disposisi_waseskab` text DEFAULT NULL,
   `disposisi_deputi` text DEFAULT NULL,
@@ -492,13 +563,13 @@ CREATE TABLE `surat_keluar` (
 -- Dumping data for table `surat_keluar`
 --
 
-INSERT INTO `surat_keluar` (`id_suratKeluar`, `no_surat`, `tgl_surat`, `tgl_kirim`, `divisi`, `no_ktj`, `user`, `no_arsip`, `tujuan`, `hal`, `disposisi_seskab`, `disposisi_waseskab`, `disposisi_deputi`, `disposisi_kapus`, `link`) VALUES
-(1, 'B-111/PUSBINTER/04/2021', '2021-04-01', '2021-04-08', 7, 40, 2, NULL, 'Instansi A', ' Pengiriman Sertifikat Uji Kompetensi ', '    ', '    ', '    ', '    ', 'https://ini-link-netbox.com'),
-(2, 'B-111/PUSBINTER/04/2021', '2021-04-15', '2021-04-21', 8, 42, 1, NULL, 'Bpk. Ahmad', '    testing ', '          ', '          ', '          ', '          ', 'http://youtube.com'),
-(5, 'B-121/PUSBINTER/06/2021', '2021-06-08', '2021-06-17', 7, 37, 2, NULL, 'Bpk. Aceng', ' testing', NULL, NULL, NULL, NULL, 'https://ini-link-netbox.com'),
-(7, 'B-191/PUSBINTER/06/2021', '2021-06-18', '2021-06-23', 8, 43, 1, '01672/ARSIP/06/2021', 'Instansi A', ' testing', NULL, NULL, NULL, NULL, 'https://ini-link-netbox.com'),
-(8, 'B-14/PUSBINTER/06/2021', '2021-06-21', '2021-06-24', 8, 44, 1, '03817/ARSIP/06/2021', 'Kepala Pusat', ' Kesediaan Hadir untuk Undangan Rapat', NULL, NULL, NULL, NULL, 'https://drive.google.com/drive/u/0/folders/1Hi9vsHhEl6rIcQ64XEx8QxsG0FTcGLig'),
-(10, 'B-18/PUSBINTER/06/2021', '2021-06-24', '2021-06-26', 8, 46, 1, NULL, 'Kepala Bidang ABC', ' testinggggggg', NULL, NULL, NULL, NULL, 'http://netbox.com');
+INSERT INTO `surat_keluar` (`id_suratKeluar`, `no_surat`, `tgl_surat`, `tgl_kirim`, `divisi`, `no_ktj`, `user`, `tujuan`, `perihal`, `disposisi_seskab`, `disposisi_waseskab`, `disposisi_deputi`, `disposisi_kapus`, `link`) VALUES
+(1, 'B-111/DUMMY/04/2021', '2021-04-01', '2021-04-08', 7, 40, 2, 'Instansi A', '  Pengiriman Sertifikat Uji Kompetensi  ', '      ', '      ', '      ', '      ', 'https://ini-link-netbox.com'),
+(2, 'B-111/DUMMY/04/2021', '2021-04-15', '2021-04-21', 8, 42, 1, 'Bpk. Ahmad', '     testing  ', '            ', '            ', '            ', '            ', 'http://youtube.com'),
+(5, 'B-121/DUMMY/06/2021', '2021-06-08', '2021-06-17', 7, 37, 2, 'Bpk. Aceng', '  testing ', '  ', '  ', '  ', '  ', 'https://ini-link-netbox.com'),
+(7, 'B-191/DUMMY/06/2021', '2021-06-18', '2021-06-23', 8, 43, 1, 'Instansi A', '  testing ', '  ', '  ', '  ', '  ', 'https://ini-link-netbox.com'),
+(8, 'B-14/DUMMY/06/2021', '2021-06-21', '2021-06-24', 8, 44, 1, 'Kepala Pusat', 'Kesediaan Hadir untuk Undangan Rapat  ', '    ', '    ', '    ', '    ', 'https://drive.google.com/drive/u/0/folders/1Hi9vsHhEl6rIcQ64XEx8QxsG0FTcGLig'),
+(10, 'B-18/DUMMY/06/2021', '2021-06-24', '2021-06-26', 8, 46, 1, 'Kepala Bidang ABC', ' Undangan Rapat ', '    ', '    ', '    ', '    ', 'http://netbox.com');
 
 -- --------------------------------------------------------
 
@@ -516,7 +587,7 @@ CREATE TABLE `surat_masuk` (
   `no_ktj` int(11) DEFAULT NULL,
   `user` int(11) DEFAULT NULL,
   `pengirim` varchar(255) DEFAULT NULL,
-  `hal` text DEFAULT NULL,
+  `perihal` text DEFAULT NULL,
   `disposisi_waseskab` text DEFAULT NULL,
   `disposisi_deputi` text DEFAULT NULL,
   `disposisi_kapus` text DEFAULT NULL,
@@ -528,20 +599,19 @@ CREATE TABLE `surat_masuk` (
 -- Dumping data for table `surat_masuk`
 --
 
-INSERT INTO `surat_masuk` (`id_suratMasuk`, `no_surat`, `tgl_surat`, `tgl_diterima`, `kategori`, `divisi`, `no_ktj`, `user`, `pengirim`, `hal`, `disposisi_waseskab`, `disposisi_deputi`, `disposisi_kapus`, `link`, `status`) VALUES
-(1, 'B-333/PUSBINTER/03/2021', '2021-03-17', '2021-03-19', 7, 8, 43, 1, 'Kementerian XYZ', '', '', '', '', 'http://www.link-file.com', 'Diajukan'),
-(2, 'B-123/PUSBINTER/03/2021', '2021-03-22', '2021-03-25', 11, 8, 46, 1, 'Bpk. Jono', '', '', '', '', 'https://www.ini-link-netbox.com', 'Diajukan'),
-(3, 'B-456/PUSBINTER/04/2021', '2021-04-20', '2021-04-23', 3, 7, 39, 2, 'Bpk. Saiful', 'testing', '', '', '', 'http://www.google.com', 'Diajukan'),
-(4, 'B-121/PUSBINTER/04/2021', '2021-04-14', '2021-04-19', 10, 8, 42, 1, 'Bpk. Ahmad', '', '', '', '', 'http://www.link-file.com', 'Diajukan'),
-(5, 'B-98/PUSBINTER/04/2021', '2021-04-07', '2021-04-09', 3, 7, 36, 2, 'Bpk. Roji', '', '', '', '', 'http://youtube.com', 'Diajukan'),
-(6, 'B-123/PUSBINTER/04/2021', '2021-04-05', '2021-04-06', 14, 8, 44, 1, 'Bpk. Fatur', 'Permohonan Sertifikat Hasil Uji Kompetensi', '', '', '', 'http://www.link-file.com', 'Diajukan'),
-(7, 'B-333/PUSBINTER/04/2021', '2021-04-09', '2021-04-12', 7, 8, 45, 1, 'Kementerian XYZ', 'Undangan Rapat', '', '', '', 'http://www.link-file.com', 'Diajukan'),
-(8, 'B-100/PUSBINTER/04/2021', '2021-04-19', '2021-04-20', 14, 7, 37, 2, 'Biro SDM', '', '', '', '', 'http://www.codeigniter.com', 'Diajukan'),
-(10, 'B-13/PUSBINTER/04/2021', '2021-04-06', '2021-04-08', 15, 7, 38, 2, 'Bpk. Tono', 'Permohonan Pembuatan Sertifikat Diklat', '', '', '', 'http://www.link-file.com', 'Diajukan'),
-(11, 'B-14/PUSBINTER/04/2021', '2021-04-21', '2021-04-23', 12, 7, 40, 2, 'Biro Naskah', 'Permohonan Penetapan Angka Kredit ', '', '', '', 'http://www.link-file.com', 'Diajukan'),
-(12, 'B-333/PUSBINTER/06/2021', '2021-06-11', '2021-06-17', 12, 7, 41, 2, 'Bpk. Sadil', 'testing', '', '', '', 'https://ini-link-netbox.com', 'Diajukan'),
-(13, 'B-14/PUSBINTER/06/2021', '2021-06-21', '2021-06-24', 7, 8, 42, 1, 'Kepala Pusat', 'Undangan Rapat', '', '', '', 'https://drive.google.com/drive/u/0/folders/1Hi9vsHhEl6rIcQ64XEx8QxsG0FTcGLig', 'Disetujui'),
-(14, 'B-15/PUSBINTER/06/2021', '2021-06-24', '2021-06-26', 12, 8, 45, 1, 'Kepala Pusat', 'ewagagdg', '', '', '', 'http://netbox.com', 'Ditolak');
+INSERT INTO `surat_masuk` (`id_suratMasuk`, `no_surat`, `tgl_surat`, `tgl_diterima`, `kategori`, `divisi`, `no_ktj`, `user`, `pengirim`, `perihal`, `disposisi_waseskab`, `disposisi_deputi`, `disposisi_kapus`, `link`, `status`) VALUES
+(1, 'B-333/DUMMY/03/2021', '2021-03-17', '2021-03-19', 15, 8, 43, 1, 'Kementerian XYZ', 'Permohonan Pembuatan Sertifikat Diklat', '', '', 'Tolong segera dibuatkan', 'http://www.link-file.com', 'Diajukan'),
+(2, 'B-123/DUMMY/03/2021', '2021-03-22', '2021-03-25', 12, 8, 46, 1, 'Bpk. Jono', 'Permohonan Penerbitan PAK dan KAK', '', '', 'Tolong segera diterbitkan', 'https://www.ini-link-netbox.com', 'Diajukan'),
+(3, 'B-456/DUMMY/04/2021', '2021-04-20', '2021-04-23', 3, 7, 39, 2, 'Bpk. Saiful', 'testing', '', '', '', 'http://www.google.com', 'Diajukan'),
+(5, 'B-98/DUMMY/04/2021', '2021-04-07', '2021-04-09', 3, 7, 36, 2, 'Bpk. Roji', '', '', '', '', 'http://youtube.com', 'Diajukan'),
+(6, 'B-123/DUMMY/04/2021', '2021-04-05', '2021-04-06', 14, 8, 44, 1, 'Bpk. Fatur', 'Permohonan Sertifikat Hasil Uji Kompetensi', '', '', '', 'http://www.link-file.com', 'Diajukan'),
+(7, 'B-333/DUMMY/04/2021', '2021-04-09', '2021-04-12', 7, 8, 45, 1, 'Kementerian XYZ', 'Undangan Rapat', '', '', '', 'http://www.link-file.com', 'Diajukan'),
+(8, 'B-100/DUMMY/04/2021', '2021-04-19', '2021-04-20', 14, 7, 37, 2, 'Biro SDM', 'Permohonan Pembuatan Sertifikat Hasil Uji Kompetensi', '', '', '', 'http://www.codeigniter.com', 'Diajukan'),
+(10, 'B-13/DUMMY/04/2021', '2021-04-06', '2021-04-08', 15, 7, 38, 2, 'Bpk. Tono', 'Permohonan Pembuatan Sertifikat Diklat', '', '', '', 'http://www.link-file.com', 'Diajukan'),
+(11, 'B-14/DUMMY/04/2021', '2021-04-21', '2021-04-23', 12, 7, 40, 2, 'Biro Naskah', 'Permohonan Penetapan Angka Kredit ', '', '', '', 'http://www.link-file.com', 'Diajukan'),
+(12, 'B-333/DUMMY/06/2021', '2021-06-11', '2021-06-17', 12, 7, 41, 2, 'Bpk. Sadil', 'Permohonan Penerbitan PAK dan KAK', '', '', '', 'https://ini-link-netbox.com', 'Diajukan'),
+(13, 'B-14/DUMMY/06/2021', '2021-06-21', '2021-06-24', 7, 8, 42, 1, 'Kepala Pusat', 'Undangan Rapat', '', '', '', 'https://drive.google.com/drive/u/0/folders/1Hi9vsHhEl6rIcQ64XEx8QxsG0FTcGLig', 'Disetujui'),
+(14, 'B-15/DUMMY/06/2021', '2021-06-23', '2021-06-26', 1, 8, 45, 1, 'Kepala Pusat', 'Permohonan Diklat', '', '', '', 'http://netbox.com', 'Ditolak');
 
 -- --------------------------------------------------------
 
@@ -554,12 +624,13 @@ CREATE TABLE `surat_usulan` (
   `no_surat` varchar(30) DEFAULT NULL,
   `tgl_surat` date DEFAULT NULL,
   `tgl_diterima` date DEFAULT NULL,
-  `id_kategori` int(11) DEFAULT NULL,
-  `iddivisi` int(11) DEFAULT NULL,
-  `iduser` int(11) DEFAULT NULL,
-  `hal` text DEFAULT NULL,
+  `kategori` int(11) DEFAULT NULL,
+  `divisi` int(11) DEFAULT NULL,
+  `user` int(11) DEFAULT NULL,
   `pengirim` varchar(255) DEFAULT NULL,
+  `perihal` text DEFAULT NULL,
   `link` text DEFAULT NULL,
+  `keterangan` text DEFAULT NULL,
   `status` enum('Diajukan','Ditolak','Disetujui') DEFAULT 'Diajukan'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -567,12 +638,13 @@ CREATE TABLE `surat_usulan` (
 -- Dumping data for table `surat_usulan`
 --
 
-INSERT INTO `surat_usulan` (`id_suratUsulan`, `no_surat`, `tgl_surat`, `tgl_diterima`, `id_kategori`, `iddivisi`, `iduser`, `hal`, `pengirim`, `link`, `status`) VALUES
-(1, 'B-111/PUSBINTER/03/2021', '2021-04-05', '2021-04-07', 4, 7, 2, 'Pengangkatan Penerjemah bapak Dummy', 'User Dummy', 'https://ini-link-netbox.com', 'Diajukan'),
-(2, 'B-333/PUSBINTER/03/2021', '2021-04-12', '2021-04-13', 5, 8, 1, 'Pemberhentian Penerjemah', 'Kementerian XYZ', 'http://www.link-file.com', 'Diajukan'),
-(3, 'B-121/PUSBINTER/03/2021', '2021-04-09', '2021-04-12', 4, 8, 1, 'Pengangkatan Penerjemah', 'Bpk. Deni', 'http://www.link-file.com', 'Disetujui'),
-(4, 'B-81/PUSBINTER/06/2021', '2021-06-14', '2021-06-17', 6, 7, 2, 'safdfcscsdcsdcsdc', 'Pak Anang', 'https://ini-link-netbox.com', 'Diajukan'),
-(5, 'B-14/PUSBINTER/06/2021', '2021-06-25', '2021-06-26', 4, 8, 1, 'wefewsfsdf', 'Bpk. Jono', 'http://netbox.com', 'Diajukan');
+INSERT INTO `surat_usulan` (`id_suratUsulan`, `no_surat`, `tgl_surat`, `tgl_diterima`, `kategori`, `divisi`, `user`, `pengirim`, `perihal`, `link`, `keterangan`, `status`) VALUES
+(1, 'B-111/DUMMY/03/2021', '2021-04-05', '2021-04-07', 4, 7, 2, 'User Dummy', 'Pengangkatan Penerjemah bapak Dummy', 'https://ini-link-netbox.com', NULL, 'Diajukan'),
+(2, 'B-333/DUMMY/03/2021', '2021-04-12', '2021-04-13', 5, 8, 1, 'Kementerian XYZ', 'Pemberhentian Penerjemah', 'http://www.link-file.com', NULL, 'Diajukan'),
+(3, 'B-121/DUMMY/03/2021', '2021-04-09', '2021-04-12', 4, 8, 1, 'Bpk. Deni', 'Pengangkatan Penerjemah', 'http://www.link-file.com', NULL, 'Disetujui'),
+(4, 'B-81/DUMMY/06/2021', '2021-06-14', '2021-06-17', 6, 7, 2, 'Pak Anang', 'safdfcscsdcsdcsdc', 'https://ini-link-netbox.com', NULL, 'Diajukan'),
+(6, 'B-333/DUMMY/07/2021', '2021-07-15', '2021-07-17', 6, 4, 21, 'Kementerian XYZ', 'sadsad', 'http://www.link-file.com', NULL, 'Diajukan'),
+(7, 'B-14/DUMMY/09/2021', '2021-09-01', '2021-09-03', 6, 8, 1, 'qsfdsf', 'dfsf', 'http://netbox.com', NULL, 'Diajukan');
 
 -- --------------------------------------------------------
 
@@ -649,10 +721,10 @@ CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL,
-  `level` enum('1','2','3','') DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `level` enum('1','2') DEFAULT NULL,
   `id_divisi` int(11) DEFAULT NULL,
-  `foto` varchar(255) DEFAULT NULL
+  `foto` varchar(255) DEFAULT 'public/img/undraw_posting_photo.svg'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -660,9 +732,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `email`, `password`, `level`, `id_divisi`, `foto`) VALUES
-(1, 'admin', 'admin@gmail.com', '123456789', '1', 8, '1624802267_7ccd6a2dded457134656.jpg'),
-(2, 'user', 'user@gmail.com', '123456789', '2', 7, '1624801593_73d62fb611e954716a11.jpg'),
-(21, 'test', 'muhammad_rayhan@apps.ipb.ac.id', '123456789', '2', 4, '1624803490_6584b76398f3d33163a8.jpg');
+(1, 'admin', 'maulanaryhn@gmail.com', '$2y$10$TjXm2UshxSoZXbdGZK.gz.KPZQMUxREnMZTySPqAGz.abq.qOm5dq', '1', 8, '1627573900_4ebb683d55921ddd41de.jpg'),
+(2, 'user', 'maulanaryhn.corp@gmail.com', '$2y$10$vQLBXuVgvuroHmjHbIXag.1ApUGXAn7EKoJtGljCOOySp8qSKqOTK', '2', 7, '1627573886_ced584ce453410547873.jpg'),
+(21, 'test', 'muhammad_rayhan@apps.ipb.ac.id', '$2y$10$UYLlNwhKx9G9BE/xqZPcQ.cC1rw2TF7RZQ7HjJh1eJVmgiRi45RFi', '2', 4, '1627573867_7d5aa8bc743473c6e5dc.jpg');
 
 --
 -- Indexes for dumped tables
@@ -694,6 +766,13 @@ ALTER TABLE `penerjemah`
   ADD KEY `id_instansi_penerjemah` (`id_instansi_penerjemah`);
 
 --
+-- Indexes for table `reset_password`
+--
+ALTER TABLE `reset_password`
+  ADD PRIMARY KEY (`id_token`),
+  ADD KEY `id_user` (`id_user`);
+
+--
 -- Indexes for table `surat_keluar`
 --
 ALTER TABLE `surat_keluar`
@@ -717,9 +796,9 @@ ALTER TABLE `surat_masuk`
 --
 ALTER TABLE `surat_usulan`
   ADD PRIMARY KEY (`id_suratUsulan`),
-  ADD KEY `id_kategori` (`id_kategori`,`iddivisi`,`iduser`),
-  ADD KEY `iddivisi` (`iddivisi`),
-  ADD KEY `iduser` (`iduser`);
+  ADD KEY `id_kategori` (`kategori`,`divisi`,`user`),
+  ADD KEY `iddivisi` (`divisi`),
+  ADD KEY `surat_usulan_ibfk_3` (`user`);
 
 --
 -- Indexes for table `tugas`
@@ -744,7 +823,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `divisi`
 --
 ALTER TABLE `divisi`
-  MODIFY `id_divisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_divisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `instansi`
@@ -762,7 +841,13 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `penerjemah`
 --
 ALTER TABLE `penerjemah`
-  MODIFY `id_penerjemah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
+  MODIFY `id_penerjemah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
+
+--
+-- AUTO_INCREMENT for table `reset_password`
+--
+ALTER TABLE `reset_password`
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `surat_keluar`
@@ -780,7 +865,7 @@ ALTER TABLE `surat_masuk`
 -- AUTO_INCREMENT for table `surat_usulan`
 --
 ALTER TABLE `surat_usulan`
-  MODIFY `id_suratUsulan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_suratUsulan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tugas`
@@ -805,6 +890,12 @@ ALTER TABLE `penerjemah`
   ADD CONSTRAINT `fk_id_instansi` FOREIGN KEY (`id_instansi_penerjemah`) REFERENCES `instansi` (`id_instansi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `reset_password`
+--
+ALTER TABLE `reset_password`
+  ADD CONSTRAINT `reset_password_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `surat_keluar`
 --
 ALTER TABLE `surat_keluar`
@@ -825,9 +916,9 @@ ALTER TABLE `surat_masuk`
 -- Constraints for table `surat_usulan`
 --
 ALTER TABLE `surat_usulan`
-  ADD CONSTRAINT `surat_usulan_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `surat_usulan_ibfk_2` FOREIGN KEY (`iddivisi`) REFERENCES `divisi` (`id_divisi`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `surat_usulan_ibfk_3` FOREIGN KEY (`iduser`) REFERENCES `user` (`id_user`);
+  ADD CONSTRAINT `surat_usulan_ibfk_1` FOREIGN KEY (`kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `surat_usulan_ibfk_2` FOREIGN KEY (`divisi`) REFERENCES `divisi` (`id_divisi`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `surat_usulan_ibfk_3` FOREIGN KEY (`user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tugas`

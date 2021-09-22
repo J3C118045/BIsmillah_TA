@@ -331,7 +331,7 @@ return redirect()->to(base_url('surat_usulan'));
 			$spreadsheet->getActiveSheet()->getColumnDimension('F')->setWidth('25');
 			$spreadsheet->getActiveSheet()->getColumnDimension('G')->setWidth('25');
 			$spreadsheet->getActiveSheet()->getColumnDimension('H')->setWidth('25');
-			$spreadsheet->getActiveSheet()->getColumnDimension('H')->setWidth('25');
+			$spreadsheet->getActiveSheet()->getColumnDimension('I')->setWidth('25');
         }
         // tulis dalam format .xlsx
         $writer = new Xlsx($spreadsheet);
