@@ -207,7 +207,7 @@
                                     if (!empty($getPersen)) {
                                         # code...
                                         foreach($getPersen as $data) {
-                                            echo $data['jumlah'].$data['persentase'] .",";
+                                            echo $data['persentase'] .",";
                                         }
                                     }
                                 ?>,
@@ -238,6 +238,22 @@
                             }
                         },
                         cutoutPercentage: 70,
+                        // plugins: {
+                        //     datalabels: {
+                        //         align: "end",
+                        //         anchor: "end",
+                        //         offset: -100,
+                        //         color: "#000",
+                        //         font: {
+                        //             weight: "bold",
+                        //             size: 20,
+                        //         },
+                        //         formatter: (value, ctx) => {
+                        //             let label = ctx.chart.data.labels(ctx.dataIndex);
+                        //             return label + '\n' +value + '%';
+                        //         },
+                        //     }
+                        // }
                     },
                 });
             </script>
