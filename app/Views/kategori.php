@@ -23,6 +23,17 @@
                         </div>
                     <div class="my-2">
                     <?php
+                        $errors = session()->getFlashdata('errors');
+                        if (!empty($errors)) { ?>
+                            <div class="alert alert-danger alert-dismissible">
+                                <ul>
+                                    <?php foreach ($errors as $key => $value) { ?>
+                                        <li><?= esc($value)  ?></li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        <?php } ?>
+                    <?php
                         if (session()->getFlashdata('pesan')) {
                             echo '<div class="alert alert-success alert-dismissible">';
                             echo session()->getFlashdata('pesan');
@@ -95,7 +106,7 @@
                                 <?php echo form_open('kategori/save') ?>
                                 <div class="form-group">
                                     <label>Nama Kategori</label>
-                                    <input type="text" class="form-control border-left-info" name="nama_kategori" placeholder="Masukkan nama Kategori" required>
+                                    <input type="text" class="form-control border-left-info" name="nama_kategori" placeholder="Masukkan nama Kategori">
                                 </div>
                                 
                                 

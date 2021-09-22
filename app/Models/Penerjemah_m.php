@@ -56,6 +56,16 @@ class Penerjemah_m extends Model
 		->get()
         ->getResultArray();
         return $query;
+    }    
+
+    public function getPersen()
+    {
+        $query = $this->db->table('penerjemah')
+        ->select('status as status, Count(status) AS jumlah, ROUND((Count(status) * 100 / (select Count(*) from penerjemah)), 1) AS persentase')
+		->groupBy('status')
+		->get()
+        ->getResultArray();
+        return $query;
     }
  
     public function updatePenerjemah($data)

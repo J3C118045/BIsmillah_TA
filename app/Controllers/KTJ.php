@@ -26,25 +26,63 @@ class KTJ extends BaseController
 
     public function save()
     {
-        $data = [
-            'kode_tugas'    => $this->request->getPost('kode_tugas'),
-            'list_tugas'    => $this->request->getPost('list_tugas'),
-        ];
-        $this->ktj->saveKTJ($data);
-        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan!!!');
-        return redirect()->to(base_url('ktj'));
+        if ($this->validate([
+            'kode_tugas' => [
+				'rules'	=> 'required',
+				'errors'	=> [
+					'required'	=> 'Kode KTJ wajib diisi !!!',
+				]
+            ],
+            'list_tugas' => [
+				'rules'	=> 'required',
+				'errors'	=> [
+					'required'	=> 'Isi KTJ wajib diisi !!!',
+				]
+			]
+        ])) {
+            $data = [
+                'kode_tugas'    => $this->request->getPost('kode_tugas'),
+                'list_tugas'    => $this->request->getPost('list_tugas'),
+            ];
+            $this->ktj->saveKTJ($data);
+            session()->setFlashdata('pesan', 'Data Berhasil ditambahkan!!!');
+            return redirect()->to(base_url('ktj'));
+        } else {
+			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('ktj'));
+		}
+        
     }
 
     public function update($id)
     {
-        $data = [
-            'id_tugas'      => $id,
-            'kode_tugas'    => $this->request->getPost('kode_tugas'),
-            'list_tugas'    => $this->request->getPost('list_tugas'),
-        ];
-        $this->ktj->updateKTJ($data);
-        session()->setFlashdata('pesan', 'Data Berhasil diubah...');
-        return redirect()->to(base_url('ktj'));
+        if ($this->validate([
+            'kode_tugas' => [
+				'rules'	=> 'required',
+				'errors'	=> [
+					'required'	=> 'Kode KTJ wajib diisi !!!',
+				]
+            ],
+            'list_tugas' => [
+				'rules'	=> 'required',
+				'errors'	=> [
+					'required'	=> 'Isi KTJ wajib diisi !!!',
+				]
+			]
+        ])) {
+            $data = [
+                'id_tugas'      => $id,
+                'kode_tugas'    => $this->request->getPost('kode_tugas'),
+                'list_tugas'    => $this->request->getPost('list_tugas'),
+            ];
+            $this->ktj->updateKTJ($data);
+            session()->setFlashdata('pesan', 'Data Berhasil diubah...');
+            return redirect()->to(base_url('ktj'));
+        } else {
+			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('ktj'));
+		}
+        
     }
 
     public function delete($id)

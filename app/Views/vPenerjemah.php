@@ -7,6 +7,19 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800"><?= $title ?></h1> 
+                    <div class="my-2">
+                    <?php
+                                $errors = session()->getFlashdata('errors');
+                                if (!empty($errors)) { ?>
+                                    <div class="alert alert-danger alert-dismissible">
+                                        <ul>
+                                            <?php foreach ($errors as $key => $value) { ?>
+                                                <li><?= esc($value)  ?></li>
+                                            <?php } ?>
+                                        </ul>
+                                    </div>
+                                <?php } ?>
+                    </div>
 
                     <div class="row">
 

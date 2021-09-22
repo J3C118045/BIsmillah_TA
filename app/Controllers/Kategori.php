@@ -25,12 +25,26 @@ class Kategori extends BaseController
 
 	public function save()
 	{
-		$data = [
-			'nama_kategori'	=> $this->request->getPost('nama_kategori'),
-		];
-		$this->kategori->saveKategori($data);
-		session()->setFlashdata('pesan', 'Data berhasil ditambahkan!!!');
-		return redirect()->to(base_url('kategori'));
+		if ($this->validate([
+			'nama_kategori' => [
+				'rules' => 'required|is_string',
+				'errors' => [
+					'required'	=> 'Nama kategori wajib diisi !!!',
+					'is_string'	=> 'Data isian harus berupa huruf'
+				]
+			]
+		])) {
+			$data = [
+				'nama_kategori'	=> $this->request->getPost('nama_kategori'),
+			];
+			$this->kategori->saveKategori($data);
+			session()->setFlashdata('pesan', 'Data kategori surat berhasil ditambahkan!!!');
+			return redirect()->to(base_url('kategori'));
+		} else {
+			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('kategori'));
+		}
+		
 	}
 
 	public function update($id)

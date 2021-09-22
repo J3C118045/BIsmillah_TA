@@ -23,6 +23,17 @@
                             </div>
                     <div class="my-2">
                     <?php
+                        $errors = session()->getFlashdata('errors');
+                        if (!empty($errors)) { ?>
+                            <div class="alert alert-danger alert-dismissible">
+                                <ul>
+                                    <?php foreach ($errors as $key => $value) { ?>
+                                        <li><?= esc($value)  ?></li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        <?php } ?>
+                    <?php
                         if (session()->getFlashdata('pesan')) {
                             echo '<div class="alert alert-success alert-dismissible">';
                             echo session()->getFlashdata('pesan');
@@ -99,7 +110,7 @@
                                 <?php echo form_open('ktj/save') ?>
                                 <div class="form-group">
                                     <label>Kode KTJ</label>
-                                    <input type="text" class="form-control border-left-info" name="kode_tugas" placeholder="Masukkan Kode KTJ. (Ex: KTJ/KabidCoba/1)" required>
+                                    <input type="text" class="form-control border-left-info" name="kode_tugas" placeholder="Masukkan Kode KTJ. (Ex: KTJ/KabidCoba/1)" >
                                 </div>
 
                                 <div class="form-group">
@@ -136,7 +147,7 @@
                                     <?php echo form_open('ktj/update/' . $value['id_tugas']) ?>
                                     <div class="form-group">
                                         <label>Kode KTJ</label>
-                                        <input type="text" value="<?= $value['kode_tugas']?>" class="form-control border-left-info" name="kode_tugas" placeholder="Masukkan Kode KTJ" required>
+                                        <input type="text" value="<?= $value['kode_tugas']?>" class="form-control border-left-info" name="kode_tugas" placeholder="Masukkan Kode KTJ">
                                     </div>
                                         
                                     <div class="form-group">

@@ -32,6 +32,17 @@
                     </div>
                     <div class="my-2">
                     <?php
+                        $errors = session()->getFlashdata('errors');
+                        if (!empty($errors)) { ?>
+                            <div class="alert alert-danger alert-dismissible">
+                                <ul>
+                                    <?php foreach ($errors as $key => $value) { ?>
+                                        <li><?= esc($value)  ?></li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        <?php } ?>
+                    <?php
                         if (session()->getFlashdata('pesan')) {
                             echo '<div class="alert alert-success alert-dismissible">';
                             echo session()->getFlashdata('pesan');
@@ -112,21 +123,21 @@
                                 <?php echo form_open('instansi/save') ?>
                                 <div class="form-group">
                                     <label>Instansi</label>
-                                    <input type="text" class="form-control border-left-info" name="instansi" placeholder="Masukkan nama Instansi" required>
+                                    <input type="text" class="form-control border-left-info" name="instansi" placeholder="Masukkan nama Instansi" >
                                 </div>
                                 
                                 <div class="form-group">
                                     <label>Unit Kerja</label>
-                                    <input type="text" class="form-control border-left-info" name="unit_kerja" placeholder="Masukkan nama Unit Kerja" required>
+                                    <input type="text" class="form-control border-left-info" name="unit_kerja" placeholder="Masukkan nama Unit Kerja" >
                                 </div>
                             
                                 <div class="form-group">
                                     <label>Alamat</label>
-                                    <input type="text" class="form-control border-left-info" name="alamat" placeholder="Masukkan alamat satuan unit kerja" required>
+                                    <input type="text" class="form-control border-left-info" name="alamat" placeholder="Masukkan alamat satuan unit kerja" >
                                 </div>
                                 <div class="form-group">
                                     <label>Wilayah</label>
-                                    <input type="text" class="form-control border-left-info" name="wilayah" placeholder="Masukkan Provinsi satuan unit kerja" required>
+                                    <input type="text" class="form-control border-left-info" name="wilayah" placeholder="Masukkan Provinsi satuan unit kerja" >
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -156,21 +167,21 @@
                                     <?php echo form_open('instansi/update/' . $value['id_instansi']) ?>
                                     <div class="form-group">
                                         <label>Instansi</label>
-                                        <input type="text" value="<?= $value['instansi']?>" class="form-control border-left-info" name="instansi" placeholder="Masukkan nama Instansi" required>
+                                        <input type="text" value="<?= $value['instansi']?>" class="form-control border-left-info" name="instansi" placeholder="Masukkan nama Instansi" >
                                     </div>
                                     
                                     <div class="form-group">
                                         <label>Unit Kerja</label>
-                                        <input type="text" value="<?= $value['unit_kerja']?>" class="form-control border-left-info" name="unit_kerja" placeholder="Masukkan nama Unit Kerja" required>
+                                        <input type="text" value="<?= $value['unit_kerja']?>" class="form-control border-left-info" name="unit_kerja" placeholder="Masukkan nama Unit Kerja" >
                                     </div>
                                 
                                     <div class="form-group">
                                         <label>Alamat</label>
-                                        <input type="text" value="<?= $value['alamat'] ?>" class="form-control border-left-info" name="alamat" placeholder="Masukkan alamat satuan unit kerja" required>
+                                        <input type="text" value="<?= $value['alamat'] ?>" class="form-control border-left-info" name="alamat" placeholder="Masukkan alamat satuan unit kerja" >
                                     </div>
                                     <div class="form-group">
                                         <label>Wilayah</label>
-                                        <input type="text" value="<?= $value['wilayah'] ?>" class="form-control border-left-info" name="wilayah" placeholder="Masukkan Provinsi satuan unit kerja" required>
+                                        <input type="text" value="<?= $value['wilayah'] ?>" class="form-control border-left-info" name="wilayah" placeholder="Masukkan Provinsi satuan unit kerja" >
                                     </div>
                                 </div>
                                 <div class="modal-footer">

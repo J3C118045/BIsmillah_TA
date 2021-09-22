@@ -29,6 +29,8 @@ class Home extends BaseController
 			'piechart_jabatan'  => $this->Penerjemah->getJabatan(),
 			'piechartAktif'		=> 'Jumlah Penerjemah yang Aktif',	
 			'piechart_aktif'	=> $this->Penerjemah->getAktif(),
+			'getPersen'			=> $this->Penerjemah->getPersen()
+			
 		);
 		return view('index', $data);
 	}

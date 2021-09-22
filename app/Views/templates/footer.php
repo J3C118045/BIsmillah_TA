@@ -140,13 +140,30 @@
                     },
                     options: {
                         maintainAspectRatio: false,
+                        tooltips: {
+                            backgroundColor: "rgb(255,255,255)",
+                            bodyFontColor: "#858796",
+                            borderColor: '#dddfeb',
+                            borderWidth: 1,
+                            xPadding: 15,
+                            yPadding: 15,
+                            displayColors: true,
+                            caretPadding: 100,
+                        },
                         legend: {
-                        display: false,
-                        position: "bottom",
+                            display: false,
+                            position: "bottom",
+                            padding: {
+                                left: 50,
+                                right: 0,
+                                top: 0,
+                                bottom: 0
+                            }
                         },
                         cutoutPercentage: 70,
-                },
+                    },
                 });
+
 
                 var ctx = document.getElementById('MyChartAktif').getContext('2d');
                 var chart = new Chart(ctx, {
@@ -160,7 +177,16 @@
                                         echo "'" .$data['status'] ."',";
                                     }
                                 }
-                            ?>
+                            ?>,
+                            // <?php
+                            //     if (!empty($getPersen)) {
+                            //         # code...
+                            //         foreach ($getPersen as $data) {
+                            //             echo "'" .$data['status'] ."',";
+                            //         }
+                            //     }
+                            // ?>,
+                            
                         ],
                         datasets: [{
                             label: 'Jumlah Penerjemah yang Aktif',
@@ -176,7 +202,15 @@
                                             echo $data['jumlah'] .", ";
                                         }
                                     }
-                                ?>
+                                ?>,
+                            //     <?php
+                            //         if (!empty($getPersen)) {
+                            //             # code...
+                            //             foreach($getPersen as $data) {
+                            //                 echo $data['jumlah'].$data['persentase'] .",";
+                            //             }
+                            //         }
+                            //     ?>,
                             ]
                         }],
                         
@@ -190,8 +224,8 @@
                             borderWidth: 1,
                             xPadding: 15,
                             yPadding: 15,
-                            displayColors: false,
-                            caretPadding: 10,
+                            displayColors: true,
+                            caretPadding: 100,
                         },
                         legend: {
                             display: false,
@@ -207,6 +241,8 @@
                     },
                 });
             </script>
+
+            
 
 <script type="text/javascript"> 
     var start_date;

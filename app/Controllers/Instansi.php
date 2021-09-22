@@ -33,28 +33,90 @@ class Instansi extends BaseController
 
     public function save()
     {
-        $data = [
-            'instansi'      => $this->request->getPost('instansi'),
-            'unit_kerja'    => $this->request->getPost('unit_kerja'),
-            'alamat'        => $this->request->getPost('alamat'),
-            'wilayah'       => $this->request->getPost('wilayah'),
-        ];
-        $this->instansi->saveInstansi($data);
-        session()->setFlashdata('pesan', 'Data berhasil ditambahkan!!!');
-		return redirect()->to(base_url('instansi'));
+        if ($this->validate([
+            'instansi' => [
+				'rules' => 'required',
+				'errors' => [
+					'required'	=> 'Nama Instansi wajib diisi !!!'
+				]
+                ],
+            'unit_kerja' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Nama unit kerja wajib diisi !!!'
+                ]
+                ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Alamat unit kerja wajib diisi !!!'
+                ]
+                ],
+            'wilayah' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Provinsi unit kerja wajib diisi !!!'
+                ]
+                ],
+        ])) {
+            $data = [
+                'instansi'      => $this->request->getPost('instansi'),
+                'unit_kerja'    => $this->request->getPost('unit_kerja'),
+                'alamat'        => $this->request->getPost('alamat'),
+                'wilayah'       => $this->request->getPost('wilayah'),
+            ];
+            $this->instansi->saveInstansi($data);
+            session()->setFlashdata('pesan', 'Data instansi berhasil ditambahkan!!!');
+            return redirect()->to(base_url('instansi'));
+        } else {
+			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('instansi'));
+		}
+        
     }
 
     public function update($id)
     {
-        $data = [
-            'instansi'      => $this->request->getPost('instansi'),
-            'unit_kerja'    => $this->request->getPost('unit_kerja'),
-            'alamat'        => $this->request->getPost('alamat'),
-            'wilayah'       => $this->request->getPost('wilayah'),
-        ];
-        $this->instansi->updateInstansi($data, $id);
-        session()->setFlashdata('pesan', 'Data berhasil diubah!!!');
-		return redirect()->to(base_url('instansi'));
+        if ($this->validate([
+            'instansi' => [
+				'rules' => 'required',
+				'errors' => [
+					'required'	=> 'Nama Instansi wajib diisi !!!'
+				]
+                ],
+            'unit_kerja' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Nama unit kerja wajib diisi !!!'
+                ]
+                ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Alamat unit kerja wajib diisi !!!'
+                ]
+                ],
+            'wilayah' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Provinsi unit kerja wajib diisi !!!'
+                ]
+                ],
+        ])) {
+            $data = [
+                'instansi'      => $this->request->getPost('instansi'),
+                'unit_kerja'    => $this->request->getPost('unit_kerja'),
+                'alamat'        => $this->request->getPost('alamat'),
+                'wilayah'       => $this->request->getPost('wilayah'),
+            ];
+            $this->instansi->updateInstansi($data, $id);
+            session()->setFlashdata('pesan', 'Data instansi berhasil diubah!!!');
+            return redirect()->to(base_url('instansi'));
+        } else {
+			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('instansi'));
+		}
+        
     }
 
     public function delete($id)

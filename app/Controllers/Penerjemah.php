@@ -47,45 +47,179 @@ class Penerjemah extends BaseController
 
     public function save()
     {
-		$data = [
-            'nip'                    => $this->request->getPost('nip'),
-            'nama'                   => $this->request->getPost('nama'),
-            'tempat'                 => $this->request->getPost('tempat'),
-            'tanggal_lahir'          => $this->request->getPost('tanggal_lahir'),
-            'email'                  => $this->request->getPost('email'),
-            'telepon'                => $this->request->getPost('telepon'),
-            'golongan'               => $this->request->getPost('golongan'),
-            'tmtgol'                 => $this->request->getPost('tmtgol'),
-            'jabatan'                => $this->request->getPost('jabatan'),
-            'tmtjab'                 => $this->request->getPost('tmtjab'),
-            'id_instansi_penerjemah' => $this->request->getPost('id_instansi_penerjemah'),
-            'status'                 => $this->request->getPost('status'),
-        ];
-        $this->penerjemah->savePenerjemah($data);
-        session()->setFlashdata('pesan', 'Data berhasil ditambahkan!!!');
-		return redirect()->to(base_url('penerjemah'));
+        if ($this->validate([
+            'nip' => [
+				'rules' => 'required',
+				'errors' => [
+					'required'	=> 'NIP wajib diisi !!!'
+				]
+                ],
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Nama wajib diisi !!!'
+                ]
+                ],
+            'tempat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Tempat lahir wajib diisi !!!'
+                ]
+                ],
+            'tanggal_lahir' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Tanggal lahir wajib diisi !!!'
+                ]
+                ],
+            'golongan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Golongan wajib diisi !!!'
+                ]
+                ],
+            'tmtgol' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'TMT Golongan wajib diisi !!!'
+                ]
+                ],
+            'jabatan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Jabatan wajib diisi !!!'
+                ]
+                ],
+            'tmtjab' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'TMT Jabatan wajib diisi !!!'
+                ]
+                ],
+            'id_instansi_penerjemah' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Instansi wajib diisi !!!'
+                ]
+                ],
+            'status' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Status wajib diisi !!!'
+                ]
+                ],
+        ])) {
+            $data = [
+                'nip'                    => $this->request->getPost('nip'),
+                'nama'                   => $this->request->getPost('nama'),
+                'tempat'                 => $this->request->getPost('tempat'),
+                'tanggal_lahir'          => $this->request->getPost('tanggal_lahir'),
+                'email'                  => $this->request->getPost('email'),
+                'telepon'                => $this->request->getPost('telepon'),
+                'golongan'               => $this->request->getPost('golongan'),
+                'tmtgol'                 => $this->request->getPost('tmtgol'),
+                'jabatan'                => $this->request->getPost('jabatan'),
+                'tmtjab'                 => $this->request->getPost('tmtjab'),
+                'id_instansi_penerjemah' => $this->request->getPost('id_instansi_penerjemah'),
+                'status'                 => $this->request->getPost('status'),
+            ];
+            $this->penerjemah->savePenerjemah($data);
+            session()->setFlashdata('pesan', 'Data berhasil ditambahkan!!!');
+            return redirect()->to(base_url('penerjemah'));
+        } else {
+			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('penerjemah'));
+		}
+		
     }
 
     public function update()
     {
-		$data = [
-            'id_penerjemah'          => $this->request->getPost('id_penerjemah'),
-            'nip'                    => $this->request->getPost('nip'),
-            'nama'                   => $this->request->getPost('nama'),
-            'tempat'                 => $this->request->getPost('tempat'),
-            'tanggal_lahir'          => $this->request->getPost('tanggal_lahir'),
-            'email'                  => $this->request->getPost('email'),
-            'telepon'                => $this->request->getPost('telepon'),
-            'golongan'               => $this->request->getPost('golongan'),
-            'tmtgol'                 => $this->request->getPost('tmtgol'),
-            'jabatan'                => $this->request->getPost('jabatan'),
-            'tmtjab'                 => $this->request->getPost('tmtjab'),
-            'id_instansi_penerjemah' => $this->request->getPost('id_instansi_penerjemah'),
-            'status'                 => $this->request->getPost('status'),
-        ];
-        $this->penerjemah->updatePenerjemah($data);
-        session()->setFlashdata('pesan', 'Data berhasil diedit !!!');
-		return redirect()->to(base_url('penerjemah'));
+        if ($this->validate([
+            'nip' => [
+				'rules' => 'required',
+				'errors' => [
+					'required'	=> 'NIP wajib diisi !!!'
+				]
+                ],
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Nama wajib diisi !!!'
+                ]
+                ],
+            'tempat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Tempat lahir wajib diisi !!!'
+                ]
+                ],
+            'tanggal_lahir' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Tanggal lahir wajib diisi !!!'
+                ]
+                ],
+            'golongan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Golongan wajib diisi !!!'
+                ]
+                ],
+            'tmtgol' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'TMT Golongan wajib diisi !!!'
+                ]
+                ],
+            'jabatan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Jabatan wajib diisi !!!'
+                ]
+                ],
+            'tmtjab' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'TMT Jabatan wajib diisi !!!'
+                ]
+                ],
+            'id_instansi_penerjemah' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Instansi wajib diisi !!!'
+                ]
+                ],
+            'status' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Status wajib diisi !!!'
+                ]
+                ],
+        ])) {
+            $data = [
+                'id_penerjemah'          => $this->request->getPost('id_penerjemah'),
+                'nip'                    => $this->request->getPost('nip'),
+                'nama'                   => $this->request->getPost('nama'),
+                'tempat'                 => $this->request->getPost('tempat'),
+                'tanggal_lahir'          => $this->request->getPost('tanggal_lahir'),
+                'email'                  => $this->request->getPost('email'),
+                'telepon'                => $this->request->getPost('telepon'),
+                'golongan'               => $this->request->getPost('golongan'),
+                'tmtgol'                 => $this->request->getPost('tmtgol'),
+                'jabatan'                => $this->request->getPost('jabatan'),
+                'tmtjab'                 => $this->request->getPost('tmtjab'),
+                'id_instansi_penerjemah' => $this->request->getPost('id_instansi_penerjemah'),
+                'status'                 => $this->request->getPost('status'),
+            ];
+            $this->penerjemah->updatePenerjemah($data);
+            session()->setFlashdata('pesan', 'Data berhasil diedit !!!');
+            return redirect()->to(base_url('penerjemah'));
+        } else {
+			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('penerjemah'));
+		}
+		
     }
 
     public function delete($id)
@@ -99,24 +233,92 @@ class Penerjemah extends BaseController
 
     public function update2()
     {
-        $data = [
-            'id_penerjemah'          => $this->request->getPost('id_penerjemah'),
-            'nip'                    => $this->request->getPost('nip'),
-            'nama'                   => $this->request->getPost('nama'),
-            'tempat'                 => $this->request->getPost('tempat'),
-            'tanggal_lahir'          => $this->request->getPost('tanggal_lahir'),
-            'email'                  => $this->request->getPost('email'),
-            'telepon'                => $this->request->getPost('telepon'),
-            'golongan'               => $this->request->getPost('golongan'),
-            'tmtgol'                 => $this->request->getPost('tmtgol'),
-            'jabatan'                => $this->request->getPost('jabatan'),
-            'tmtjab'                 => $this->request->getPost('tmtjab'),
-            'id_instansi_penerjemah' => $this->request->getPost('id_instansi_penerjemah'),
-            'status'                 => $this->request->getPost('status'),
-        ];
-        $this->penerjemah->updatePenerjemah($data);
-        session()->setFlashdata('pesan', 'Data berhasil diedit !!!');
-		return redirect()->to(base_url('penerjemah/'));
+        if ($this->validate([
+            'nip' => [
+				'rules' => 'required',
+				'errors' => [
+					'required'	=> 'NIP wajib diisi !!!'
+				]
+                ],
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Nama wajib diisi !!!'
+                ]
+                ],
+            'tempat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Tempat lahir wajib diisi !!!'
+                ]
+                ],
+            'tanggal_lahir' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Tanggal lahir wajib diisi !!!'
+                ]
+                ],
+            'golongan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Golongan wajib diisi !!!'
+                ]
+                ],
+            'tmtgol' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'TMT Golongan wajib diisi !!!'
+                ]
+                ],
+            'jabatan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Jabatan wajib diisi !!!'
+                ]
+                ],
+            'tmtjab' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'TMT Jabatan wajib diisi !!!'
+                ]
+                ],
+            'id_instansi_penerjemah' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Instansi wajib diisi !!!'
+                ]
+                ],
+            'status' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'	=> 'Status wajib diisi !!!'
+                ]
+                ],
+        ])) {
+            $data = [
+                'id_penerjemah'          => $this->request->getPost('id_penerjemah'),
+                'nip'                    => $this->request->getPost('nip'),
+                'nama'                   => $this->request->getPost('nama'),
+                'tempat'                 => $this->request->getPost('tempat'),
+                'tanggal_lahir'          => $this->request->getPost('tanggal_lahir'),
+                'email'                  => $this->request->getPost('email'),
+                'telepon'                => $this->request->getPost('telepon'),
+                'golongan'               => $this->request->getPost('golongan'),
+                'tmtgol'                 => $this->request->getPost('tmtgol'),
+                'jabatan'                => $this->request->getPost('jabatan'),
+                'tmtjab'                 => $this->request->getPost('tmtjab'),
+                'id_instansi_penerjemah' => $this->request->getPost('id_instansi_penerjemah'),
+                'status'                 => $this->request->getPost('status'),
+            ];
+            $this->penerjemah->updatePenerjemah($data);
+            session()->setFlashdata('pesan', 'Data berhasil diedit !!!');
+            return redirect()->to(base_url('penerjemah/'));
+        } else {
+			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('penerjemah'));
+		}
+		
+        
         // var_dump($data);
     }
 
