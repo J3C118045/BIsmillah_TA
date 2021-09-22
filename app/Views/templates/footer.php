@@ -195,22 +195,22 @@
                             borderColor: '#fff',
                             borderWidth: 2,
                             data: [
+                                // <?php
+                                //     if (!empty($piechart_aktif)) {
+                                //         # code...
+                                //         foreach($piechart_aktif as $data) {
+                                //             echo $data['jumlah'] .", ";
+                                //         }
+                                //     }
+                                // ?>,
                                 <?php
-                                    if (!empty($piechart_aktif)) {
+                                    if (!empty($getPersen)) {
                                         # code...
-                                        foreach($piechart_aktif as $data) {
-                                            echo $data['jumlah'] .", ";
+                                        foreach($getPersen as $data) {
+                                            echo $data['jumlah'].$data['persentase'] .",";
                                         }
                                     }
                                 ?>,
-                            //     <?php
-                            //         if (!empty($getPersen)) {
-                            //             # code...
-                            //             foreach($getPersen as $data) {
-                            //                 echo $data['jumlah'].$data['persentase'] .",";
-                            //             }
-                            //         }
-                            //     ?>,
                             ]
                         }],
                         
