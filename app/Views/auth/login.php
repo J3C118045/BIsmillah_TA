@@ -62,18 +62,18 @@
                                         <div class="form-group">
                                             <input type="text" name="username" class="form-control form-control-user border-left-primary"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Masukkan Username...">
+                                                placeholder="Masukkan Username.">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password" class="form-control form-control-user border-left-primary"
-                                                id="exampleInputPassword" placeholder="Masukkan Kata Sandi Anda">
+                                                id="exampleInputPassword" placeholder="Masukkan password.">
                                         </div>
                                         <button class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
                                         <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?= base_url('auth/forgot') ?>">Lupa Kata Sandi?</a>
+                                        <a class="small" href="<?= base_url('auth/forgot') ?>">Lupa password?</a>
                                     </div>
                                         
                                     <?php form_close() ?>

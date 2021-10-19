@@ -81,25 +81,25 @@ class Instansi extends BaseController
             'instansi' => [
 				'rules' => 'required',
 				'errors' => [
-					'required'	=> 'Nama Instansi wajib diisi !!!'
+					'required'	=> 'Nama Instansi harap diisi.'
 				]
                 ],
             'unit_kerja' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Nama unit kerja wajib diisi !!!'
+                    'required'	=> 'Nama unit kerja harap diisi.'
                 ]
                 ],
             'alamat' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Alamat unit kerja wajib diisi !!!'
+                    'required'	=> 'Alamat unit kerja harap diisi.'
                 ]
                 ],
             'wilayah' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Provinsi unit kerja wajib diisi !!!'
+                    'required'	=> 'Provinsi unit kerja harap diisi.'
                 ]
                 ],
         ])) {
@@ -110,7 +110,7 @@ class Instansi extends BaseController
                 'wilayah'       => $this->request->getPost('wilayah'),
             ];
             $this->instansi->updateInstansi($data, $id);
-            session()->setFlashdata('pesan', 'Data instansi berhasil diubah!!!');
+            session()->setFlashdata('pesan', 'Data instansi berhasil diubah.');
             return redirect()->to(base_url('instansi'));
         } else {
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
@@ -122,7 +122,7 @@ class Instansi extends BaseController
     public function delete($id)
     {
         $this->instansi->deleteInstansi($id);
-        session()->setFlashdata('pesan', 'Data berhasil dihapus!!!');
+        session()->setFlashdata('pesan', 'Data berhasil dihapus.');
 		return redirect()->to(base_url('instansi'));
     }
 

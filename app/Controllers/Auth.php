@@ -36,14 +36,14 @@ class Auth extends BaseController
                 'label'  => 'Username',
                 'rules'  => 'required',
                 'errors' => [
-                    'required' => '{field} Wajib Diisi !!!'
+                    'required' => 'Anda perlu mengisi username terlebih dahulu.'
                 ]
             ],
             'password' => [
                 'label'  => 'Password',
                 'rules'  => 'required',
                 'errors' => [
-                    'required' => '{field} Wajib Diisi !!!'
+                    'required' => 'Anda perlu mengisi password terlebih dahulu.'
                 ]
             ]
         ])) {
@@ -63,10 +63,10 @@ class Auth extends BaseController
                 session()->set('level', $cek['level']);
                 session()->set('id_divisi', $cek['id_divisi']);
                 session()->set('foto', $cek['foto']);
-                session()->setFlashdata('pesan', 'Login berhasil, selamat datang ');
+                session()->setFlashdata('pesan', 'Login Anda berhasil, selamat datang ');
                 return redirect()->to(base_url('home'));
             } else {
-                session()->setFlashdata('pesan', 'Login Anda gagal !! Username atau password salah !!');
+                session()->setFlashdata('pesan', 'Username atau password salah. Silahkan periksa kembali.');
                 return redirect()->to(base_url('auth'));
             }
         }
@@ -80,7 +80,7 @@ class Auth extends BaseController
     public function forgot()
     {
         $data = array(
-			'title'		  => 'Lupa Kata Sandi Anda ?',
+			'title'		  => 'Lupa password ?',
 		);
 		return view('auth/forgot_pass', $data);
     }
@@ -93,7 +93,7 @@ class Auth extends BaseController
             $cek = $this->auth->cek_email($useremail);
         }
         if ($cek == null) {
-            session()->setFlashdata('pesan', 'Username atau Email tidak terdaftar...');
+            session()->setFlashdata('pesan', 'Username atau email tidak terdaftar, silahkan periksa kembali.');
             return redirect()->to(base_url('auth/forgot'));
         } else {
             $token = random_string('alnum',50);
@@ -117,11 +117,11 @@ class Auth extends BaseController
             $email->send();
             if($email->send())
             {
-                session()->setFlashdata('sukses', "Silahkan cek email anda");
+                session()->setFlashdata('sukses', "Silahkan periksa email anda");
                 return redirect()->to(base_url('auth'));
             }
             else {
-                session()->setFlashdata('pesan', 'Gagal atur ulang password, masukan email yang benar');
+                session()->setFlashdata('pesan', 'Gagal menagatur ulang password, silahkan masukan email dengan benar');
                 return redirect()->to(base_url('auth/forgot'));
             }
     }
@@ -136,7 +136,7 @@ class Auth extends BaseController
         return redirect()->to(base_url('auth/forgot'));
         }
         $data = array(
-			'title'		  => 'Atur Ulang Kata Sandi Anda',
+			'title'		  => 'Atur Ulang Password Anda',
             'token'        => $token,
 		);
 		return view('auth/reset_pass', $data);
@@ -147,13 +147,13 @@ class Auth extends BaseController
         if(!$this->validate([
 				
             'password' => ['rules'=>'required|min_length[8]',
-                             'errors'=>[ 'required'=>  'Kata Sandi wajib diisi',
-                                         'min_length'=> 'Kata Sandi minimal 8 karakter']
+                             'errors'=>[ 'required'=>  'Anda perlu mengisi password.',
+                                         'min_length'=> 'Password minimal 8 karakter.']
 
                               ],
             'cpassword' => ['rules'=> 'required|matches[password]',
-                             'errors'=>[ 'required'=>  'Kata Sandi wajib diisi',
-                                         'matches'=> 'Kata Sandi Harus sama']
+                             'errors'=>[ 'required'=>   'Anda perlu mengisi konfirmasi password.',
+                                         'matches'=>    'Pastikan password yang Anda masukkan sesuai dengan password yang Anda masukkan sebelumnya.']
                               ],
 
         ])) {
@@ -173,7 +173,7 @@ class Auth extends BaseController
         return redirect()->to(base_url('auth/forgot'));
         }
         // dd($this->reset_pass->Search_Token($this->request->getVar('token')));
-        session()->setFlashdata('sukses', "Password Berhasil di atur ulang");
+        session()->setFlashdata('sukses', "Password berhasil di atur ulang");
         return redirect()->to(base_url('auth'));
     }
     
@@ -189,7 +189,7 @@ class Auth extends BaseController
         session()->remove('level');
         session()->remove('foto');
 
-        session()->setFlashdata('pesan', 'Anda telah Logout dari sistem...');
+        session()->setFlashdata('pesan', 'Anda telah keluar dari sistem.');
         return redirect()->to(base_url('auth'));
     }
 }

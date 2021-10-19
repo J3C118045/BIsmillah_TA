@@ -27,20 +27,6 @@ class User extends BaseController
 		return view('user_profil', $data);
 	}
 
-    // public function save()
-	// {
-	// 	$data = [
-	// 		'username'		=> $this->request->getPost('username'),
-	// 		'email'			=> $this->request->getPost('email'),
-	// 		'password'		=> $this->request->getPost('password'),
-	// 		'level'			=> $this->request->getPost('level'),
-	// 		'id_divisi'		=> $this->request->getPost('id_divisi'),
-	// 	];
-	// 	$this->user->saveUser($data);
-	// 	session()->setFlashdata('pesan', 'Data berhasil ditambahkan!!!');
-	// 	return redirect()->to(base_url('pengguna'));
-	// }
-
 	public function edit() {
 		$data = [
 			'title'		=> 'Edit Profil Pengguna',
@@ -54,33 +40,29 @@ class User extends BaseController
 	{
 		if ($this->validate([
 			'username' => [
-                'label' => 'Username',
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Wajib diisi !!!'
+                    'required' => 'Username harap diisi.'
                 ]
             ],
 			'email' => [
-                'label' => 'Email',
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Wajib diisi !!!',
+                    'required' => 'Email harap diisi.',
                     'is_unique' => 'Alamat Email pernah digunakan',
                 ]
             ],
 			'id_divisi' => [
-                'label' => 'Bidang / Bagian',
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Wajib diisi !!!'
+                    'required' => 'Bidang / Bagian harap diisi.'
                 ]
             ],
 			'foto' => [
-                'label' => 'Foto',
                 'rules' => 'max_size[foto,2048]|mime_in[foto,image/png,image/jpg,image/jpeg]',
                 'errors' => [
-                    'max_size' => 'Max {field} 2mb',
-                    'mime_in' => 'Hanya diperbolehkan upload {field} berformat png/jpg/jpeg',
+                    'max_size' => 'Max Foto 2mb.',
+                    'mime_in' => 'Hanya diperbolehkan upload Foto berformat png/jpg/jpeg.',
                 ]
             ],
 		])) {
@@ -113,7 +95,7 @@ class User extends BaseController
                 $this->user->updateUser($data);
 			}
 			// $this->user->updateUser($data);
-			session()->setFlashdata('pesan', 'Profil berhasil diubah...');
+			session()->setFlashdata('pesan', 'Profil berhasil diubah.');
 			return redirect()->to(base_url('user'));
 		} else {
 			//if not valid
@@ -122,59 +104,34 @@ class User extends BaseController
 		}
 	}
 
-	// public function ganti_password() {
-	// 	$data = [];
-	// 	$data['user_data'] = $this->user->getID();
-		
-	// 	if ($this->request->getMethod() == 'post') {
-	// 		$rules = [
-	// 			'opwd'	=> 'required',
-	// 			'npwd'	=>'required|min_length[8]', 
-	// 			'cnpwd'	=> 'required|matches[npwd]',
-	// 			];
-	// 			if ($this->validate($rules)) {
-	// 				$opwd = $this->request->getVar('opwd');
-	// 				$npwd = $this->request->getVar('npwd');
-
-	// 				if(password_verify($opwd, $data['user_data']->password)){
-
-	// 				} else {
-
-	// 				}
-	// 			} else {
-	// 				$data['validation'] = $this->validator;
-	// 			}
-	// 	}
-	// }
-
 	public function ganti_password($id) {
 		if (!$this->validate([
 			'opwd' => [
                 'rules' => 'required|min_length[8]',
                 'errors' => [
-                    'required' => 'Kata Sandi Wajib diisi !!!',
-					'min_length'	=> 'Minimal 8 karakter'
+                    'required' => 'Password harap diisi.',
+					'min_length'	=> 'Minimal 8 karakter.'
                 ]
             ],
 			'npwd' => [
                 'rules' => 'required|min_length[8]',
                 'errors' => [
-                    'required' => 'Kata Sandi Wajib diisi !!!',
+                    'required' => 'Password baru harap diisi.',
 					'min_length'	=> 'Minimal 8 karakter'
                 ]
             ],
 			'cnpwd' => [
                 'rules' => 'required|matches[npwd]',
                 'errors' => [
-                    'required' => 'Kata Sandi Wajib diisi !!!',
-					'matches'	=> 'Kata Sandi Harus Sama'
+                    'required' => 'Konfirmasi password harap diisi.',
+					'matches'	=> 'Pastikan password yang Anda masukkan sesuai dengan password yang Anda masukkan sebelumnya.'
                 ]
             ],
 		])) {
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
             return redirect()->to(base_url('user'));
 		}
-			$data = $this->user->detailData(21);
+			$data = $this->user->detailData($id);
 			$opwd = $this->request->getVar('opwd');
 			$npwd = password_hash($this->request->getVar('npwd'), PASSWORD_DEFAULT);
 			// die(var_dump($data));
@@ -188,21 +145,13 @@ class User extends BaseController
 					password_hash($this->request->getVar('npwd'), PASSWORD_DEFAULT)
 				);
 				
-				session()->setFlashdata('pesan', 'Kata sandi berhasil diubah...');
+				session()->setFlashdata('pesan', 'Kata sandi berhasil diubah.');
 				return redirect()->to(base_url('user'));
 			} else {
-				session()->setFlashdata('error', 'Kata sandi gagal diubah...');
+				session()->setFlashdata('error', 'Kata sandi gagal diubah.');
 				return redirect()->to(base_url('user'));
 			}
 	}
 
-	// public function delete($id)
-	// {
-	// 	$data = [
-	// 		'id_user'	=> $id,
-	// 	];
-	// 	$this->user->deleteUser($data);
-	// 	session()->setFlashdata('pesan', "Data berhasil dihapus...");
-	// 	return redirect()->to(base_url('pengguna'));
-	// }
+	
 }

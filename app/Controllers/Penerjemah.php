@@ -51,61 +51,61 @@ class Penerjemah extends BaseController
             'nip' => [
 				'rules' => 'required',
 				'errors' => [
-					'required'	=> 'NIP wajib diisi !!!'
+					'required'	=> 'NIP harap diisi.'
 				]
                 ],
             'nama' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Nama wajib diisi !!!'
+                    'required'	=> 'Nama harap diisi.'
                 ]
                 ],
             'tempat' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Tempat lahir wajib diisi !!!'
+                    'required'	=> 'Tempat lahir harap diisi.'
                 ]
                 ],
             'tanggal_lahir' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Tanggal lahir wajib diisi !!!'
+                    'required'	=> 'Tanggal lahir harap diisi.'
                 ]
                 ],
             'golongan' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Golongan wajib diisi !!!'
+                    'required'	=> 'Golongan harap diisi.'
                 ]
                 ],
             'tmtgol' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'TMT Golongan wajib diisi !!!'
+                    'required'	=> 'TMT Golongan harap diisi.'
                 ]
                 ],
             'jabatan' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Jabatan wajib diisi !!!'
+                    'required'	=> 'Jabatan harap diisi.'
                 ]
                 ],
             'tmtjab' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'TMT Jabatan wajib diisi !!!'
+                    'required'	=> 'TMT Jabatan harap diisi.'
                 ]
                 ],
             'id_instansi_penerjemah' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Instansi wajib diisi !!!'
+                    'required'	=> 'Instansi harap diisi.'
                 ]
                 ],
             'status' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Status wajib diisi !!!'
+                    'required'	=> 'Status harap diisi.'
                 ]
                 ],
         ])) {
@@ -124,7 +124,7 @@ class Penerjemah extends BaseController
                 'status'                 => $this->request->getPost('status'),
             ];
             $this->penerjemah->savePenerjemah($data);
-            session()->setFlashdata('pesan', 'Data berhasil ditambahkan!!!');
+            session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
             return redirect()->to(base_url('penerjemah'));
         } else {
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
@@ -139,61 +139,61 @@ class Penerjemah extends BaseController
             'nip' => [
 				'rules' => 'required',
 				'errors' => [
-					'required'	=> 'NIP wajib diisi !!!'
+					'required'	=> 'NIP harap diisi.'
 				]
                 ],
             'nama' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Nama wajib diisi !!!'
+                    'required'	=> 'Nama harap diisi.'
                 ]
                 ],
             'tempat' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Tempat lahir wajib diisi !!!'
+                    'required'	=> 'Tempat lahir harap diisi.'
                 ]
                 ],
             'tanggal_lahir' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Tanggal lahir wajib diisi !!!'
+                    'required'	=> 'Tanggal lahir harap diisi.'
                 ]
                 ],
             'golongan' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Golongan wajib diisi !!!'
+                    'required'	=> 'Golongan harap diisi.'
                 ]
                 ],
             'tmtgol' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'TMT Golongan wajib diisi !!!'
+                    'required'	=> 'TMT Golongan harap diisi.'
                 ]
                 ],
             'jabatan' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Jabatan wajib diisi !!!'
+                    'required'	=> 'Jabatan harap diisi.'
                 ]
                 ],
             'tmtjab' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'TMT Jabatan wajib diisi !!!'
+                    'required'	=> 'TMT Jabatan harap diisi.'
                 ]
                 ],
             'id_instansi_penerjemah' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Instansi wajib diisi !!!'
+                    'required'	=> 'Instansi harap diisi.'
                 ]
                 ],
             'status' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Status wajib diisi !!!'
+                    'required'	=> 'Status harap diisi.'
                 ]
                 ],
         ])) {
@@ -213,7 +213,7 @@ class Penerjemah extends BaseController
                 'status'                 => $this->request->getPost('status'),
             ];
             $this->penerjemah->updatePenerjemah($data);
-            session()->setFlashdata('pesan', 'Data berhasil diedit !!!');
+            session()->setFlashdata('pesan', 'Data berhasil diubah.');
             return redirect()->to(base_url('penerjemah'));
         } else {
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
@@ -225,7 +225,7 @@ class Penerjemah extends BaseController
     public function delete($id)
     {
         $this->penerjemah->deletePenerjemah($id);
-        session()->setFlashdata('pesan', 'Data berhasil dihapus!!!');
+        session()->setFlashdata('pesan', 'Data berhasil dihapus.');
 		return redirect()->to(base_url('penerjemah'));
     }
 
@@ -237,61 +237,61 @@ class Penerjemah extends BaseController
             'nip' => [
 				'rules' => 'required',
 				'errors' => [
-					'required'	=> 'NIP wajib diisi !!!'
+					'required'	=> 'NIP harap diisi.'
 				]
                 ],
             'nama' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Nama wajib diisi !!!'
+                    'required'	=> 'Nama harap diisi.'
                 ]
                 ],
             'tempat' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Tempat lahir wajib diisi !!!'
+                    'required'	=> 'Tempat lahir harap diisi.'
                 ]
                 ],
             'tanggal_lahir' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Tanggal lahir wajib diisi !!!'
+                    'required'	=> 'Tanggal lahir harap diisi.'
                 ]
                 ],
             'golongan' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Golongan wajib diisi !!!'
+                    'required'	=> 'Golongan harap diisi.'
                 ]
                 ],
             'tmtgol' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'TMT Golongan wajib diisi !!!'
+                    'required'	=> 'TMT Golongan harap diisi.'
                 ]
                 ],
             'jabatan' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Jabatan wajib diisi !!!'
+                    'required'	=> 'Jabatan harap diisi.'
                 ]
                 ],
             'tmtjab' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'TMT Jabatan wajib diisi !!!'
+                    'required'	=> 'TMT Jabatan harap diisi.'
                 ]
                 ],
             'id_instansi_penerjemah' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Instansi wajib diisi !!!'
+                    'required'	=> 'Instansi harap diisi.'
                 ]
                 ],
             'status' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required'	=> 'Status wajib diisi !!!'
+                    'required'	=> 'Status harap diisi.'
                 ]
                 ],
         ])) {
@@ -311,7 +311,7 @@ class Penerjemah extends BaseController
                 'status'                 => $this->request->getPost('status'),
             ];
             $this->penerjemah->updatePenerjemah($data);
-            session()->setFlashdata('pesan', 'Data berhasil diedit !!!');
+            session()->setFlashdata('pesan', 'Data berhasil diubah.');
             return redirect()->to(base_url('penerjemah/'));
         } else {
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());

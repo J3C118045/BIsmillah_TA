@@ -114,7 +114,8 @@
                                 if (!empty($piechart_jabatan)) {
                                     # code...
                                     foreach ($piechart_jabatan as $data) {
-                                        echo "'" .$data['jabatan'] ."',";
+                                        // echo "'" .$data['jabatan'] ." (".$data['jumlah']. ")',";
+                                        echo "'" .$data['jabatan'] ." : ".$data['jumlah']. "',";
                                     }
                                 }
                             ?>
@@ -130,7 +131,7 @@
                                     if (!empty($piechart_jabatan)) {
                                         # code...
                                         foreach($piechart_jabatan as $data) {
-                                            echo $data['jumlah'] .", ";
+                                            echo $data['persentase'] .", ";
                                         }
                                     }
                                 ?>
@@ -139,7 +140,7 @@
                         
                     },
                     options: {
-                        maintainAspectRatio: false,
+                        maintainAspectRatio: false,                        
                         tooltips: {
                             backgroundColor: "rgb(255,255,255)",
                             bodyFontColor: "#858796",
@@ -149,6 +150,14 @@
                             yPadding: 15,
                             displayColors: true,
                             caretPadding: 100,
+                            callbacks: {
+                                label:
+                                function(tooltipItem, data) {
+                                    var label = data.labels[tooltipItem.index];
+                                    var val = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                                    return label + ': '+ '(' + val + "%" + ')';
+                                }
+                            }
                         },
                         legend: {
                             display: false,
@@ -171,21 +180,13 @@
                     data: {
                         labels: [
                             <?php
-                                if (!empty($piechart_aktif)) {
+                                if (!empty($getPersen)) {
                                     # code...
-                                    foreach ($piechart_aktif as $data) {
-                                        echo "'" .$data['status'] ."',";
+                                    foreach ($getPersen as $data) {
+                                        echo "'" .$data['status'] ." : ".$data['jumlah']. "',";
                                     }
                                 }
                             ?>,
-                            // <?php
-                            //     if (!empty($getPersen)) {
-                            //         # code...
-                            //         foreach ($getPersen as $data) {
-                            //             echo "'" .$data['status'] ."',";
-                            //         }
-                            //     }
-                            // ?>,
                             
                         ],
                         datasets: [{
@@ -195,14 +196,6 @@
                             borderColor: '#fff',
                             borderWidth: 2,
                             data: [
-                                // <?php
-                                //     if (!empty($piechart_aktif)) {
-                                //         # code...
-                                //         foreach($piechart_aktif as $data) {
-                                //             echo $data['jumlah'] .", ";
-                                //         }
-                                //     }
-                                // ?>,
                                 <?php
                                     if (!empty($getPersen)) {
                                         # code...
@@ -226,6 +219,14 @@
                             yPadding: 15,
                             displayColors: true,
                             caretPadding: 100,
+                            callbacks: {
+                                label:
+                                function(tooltipItem, data) {
+                                    var label = data.labels[tooltipItem.index];
+                                    var val = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                                    return label + ': '+ '(' + val + "%" + ')';
+                                }
+                            }
                         },
                         legend: {
                             display: false,
@@ -238,22 +239,6 @@
                             }
                         },
                         cutoutPercentage: 70,
-                        // plugins: {
-                        //     datalabels: {
-                        //         align: "end",
-                        //         anchor: "end",
-                        //         offset: -100,
-                        //         color: "#000",
-                        //         font: {
-                        //             weight: "bold",
-                        //             size: 20,
-                        //         },
-                        //         formatter: (value, ctx) => {
-                        //             let label = ctx.chart.data.labels(ctx.dataIndex);
-                        //             return label + '\n' +value + '%';
-                        //         },
-                        //     }
-                        // }
                     },
                 });
             </script>

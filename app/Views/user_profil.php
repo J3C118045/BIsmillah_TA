@@ -158,17 +158,17 @@
                             <?= csrf_field(); ?>
                             <input type="hidden" name="id_user" value="<?= $user['id_user'] ?>">
                             <div class="form-group">
-                                <label>Kata Sandi Lama</label>
+                                <label>Password lama</label>
                                 <input type="password" value="<?= old('opwd')?>" class="form-control border-left-info" name="opwd" >
                             </div>
                         
                             <div class="form-group">
-                                <label>Kata Sandi Baru</label>
+                                <label>Password baru</label>
                                 <input type="password" value="<?= old('npwd')?>" class="form-control border-left-info" name="npwd" >
                             </div>
 
                             <div class="form-group">
-                                <label>Konfirmasi Kata Sandi Baru</label>
+                                <label>Konfirmasi password baru</label>
                                 <input type="password" value="<?= old('cnpwd')?>" class="form-control border-left-info" name="cnpwd" >
                             </div>
                         </div>

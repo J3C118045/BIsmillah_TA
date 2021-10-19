@@ -12,7 +12,7 @@ class FIlter_Admin implements FilterInterface
     {
         // Do something here
         if (session()->get('level') == "") {
-            session()->setFlashdata('pesan', 'Anda belum login, Silahkah login terlebih dahulu !!!');
+            session()->setFlashdata('pesan', 'Sesi Anda telah berakhir. Silakan masuk lagi.');
             return redirect()->to(base_url('auth'));
         }
     }

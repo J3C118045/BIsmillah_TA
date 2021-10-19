@@ -53,7 +53,7 @@
                                     <thead style=" background: #d7f1f5;">
                                     <tr>
                                             <th style="vertical-align: middle;" class="text-center">No.</th>
-                                            <th style="vertical-align: middle;">Nama Bagian / Bidang</th>
+                                            <th style="vertical-align: middle;">Nama Bidang / Bagian</th>
                                             <th style="vertical-align: middle;">Aksi</th>
                                         </tr>
                                     </thead>
@@ -168,7 +168,7 @@
                                 </button>
                             </div>
                                 <div class="modal-body">
-                                    Apakah Anda yakin ingin menghapus data ini ???
+                                    Apakah Anda yakin ingin menghapus data ini ?
                                         
                                 </div>
                                 <div class="modal-footer">

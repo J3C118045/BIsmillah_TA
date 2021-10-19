@@ -51,7 +51,7 @@
                                     <thead style=" background: #d7f1f5;">
                                     <tr>
                                             <th style="vertical-align: middle;" class="text-center">No.</th>
-                                            <th style="vertical-align: middle;">Nama Kategori</th>
+                                            <th style="vertical-align: middle;">Nama Kategori Surat</th>
                                             <th style="vertical-align: middle;">Aksi</th>
                                         </tr>
                                     </thead>
@@ -105,8 +105,8 @@
                             <div class="modal-body">
                                 <?php echo form_open('kategori/save') ?>
                                 <div class="form-group">
-                                    <label>Nama Kategori</label>
-                                    <input type="text" class="form-control border-left-info" name="nama_kategori" placeholder="Masukkan nama Kategori">
+                                    <label>Nama Kategori Surat</label>
+                                    <input type="text" class="form-control border-left-info" name="nama_kategori" placeholder="Masukkan nama kategori surat">
                                 </div>
                                 
                                 
@@ -137,8 +137,8 @@
                                 <div class="modal-body">
                                     <?php echo form_open('kategori/update/' . $value['id_kategori']) ?>
                                     <div class="form-group">
-                                        <label>Nama Kategori</label>
-                                        <input type="text" value="<?= $value['nama_kategori']?>" class="form-control border-left-info" name="nama_kategori" placeholder="Masukkan nama Instansi" required>
+                                        <label>Nama Kategori Surat</label>
+                                        <input type="text" value="<?= $value['nama_kategori']?>" class="form-control border-left-info" name="nama_kategori" placeholder="Masukkan nama kategori surat" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -166,7 +166,7 @@
                                 </button>
                             </div>
                                 <div class="modal-body">
-                                    Apakah Anda yakin ingin menghapus data ini ???
+                                    Apakah Anda yakin ingin menghapus data ini ?
                                         
                                 </div>
                                 <div class="modal-footer">

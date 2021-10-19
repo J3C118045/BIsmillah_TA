@@ -25,10 +25,10 @@
                         </div>
 
                     <!-- Content Row -->
-                    <div class="row">
+                    <div class="row justify-content-center">
 
                         <!-- Instansi Card -->
-                        <div class="col-xl-3 col-md-6 mb-3">
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
                             <a class="card border-left-primary shadow h-100 py-2" style="text-decoration: none;" href="<?= base_url('instansi'); ?>">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -46,7 +46,7 @@
                         </div>
 
                         <!-- Penerjemah Card -->
-                        <div class="col-xl-3 col-md-6 mb-3">
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
                             <a class="card border-left-success shadow h-100 py-2" style="text-decoration: none;" href="<?= base_url('penerjemah'); ?>">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -67,7 +67,7 @@
                     
 
                         <!-- Surat Usulan Card  -->
-                        <div class="col-xl-3 col-md-6 mb-3">
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
                             <a class="card border-left-info shadow h-100 py-2" style="text-decoration: none;" href="<?= base_url('usulan'); ?>">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -84,8 +84,8 @@
                             </a>
                         </div>
 
-                        <!-- Memo Masuk Card  -->
-                        <div class="col-xl-3 col-md-6 mb-3">
+                        <!-- Surat Masuk Card  -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
                             <a class="card border-left-warning shadow h-100 py-2" style="text-decoration: none;" href="<?= base_url('surat_masuk'); ?>">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -102,8 +102,8 @@
                             </a>
                         </div>
 
-                        <!-- Memo Keluar Card  -->
-                        <div class="col-xl-3 col-md-6 mb-3">
+                        <!-- Surat Keluar Card  -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
                             <a class="card border-left-success shadow h-100 py-2" style="text-decoration: none;" href="<?= base_url('surat_keluar'); ?>">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -122,7 +122,7 @@
 
                         <?php if (session()->get('level') == 1) { ?>
                             <!-- Surat Usulan Card  -->
-                            <div class="col-xl-3 col-md-6 mb-3">
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
                                 <a class="card border-left-info shadow h-100 py-2" style="text-decoration: none;" >
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
@@ -140,7 +140,7 @@
                             </div>
 
                             <!-- Memo Masuk Card  -->
-                            <div class="col-xl-3 col-md-6 mb-3">
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
                                 <a class="card border-left-warning shadow h-100 py-2" style="text-decoration: none;" href="<?= base_url('laporan_masuk'); ?>">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
@@ -158,7 +158,7 @@
                             </div>
 
                             <!-- Memo Keluar Card  -->
-                            <div class="col-xl-3 col-md-6 mb-3">
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
                                 <a class="card border-left-success shadow h-100 py-2" style="text-decoration: none;" href="<?= base_url('laporan_keluar'); ?>">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">

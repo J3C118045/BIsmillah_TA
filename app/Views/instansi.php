@@ -123,21 +123,21 @@
                                 <?php echo form_open('instansi/save') ?>
                                 <div class="form-group">
                                     <label>Instansi</label>
-                                    <input type="text" class="form-control border-left-info" name="instansi" placeholder="Masukkan nama Instansi" >
+                                    <input type="text" class="form-control border-left-info" name="instansi" placeholder="Masukkan nama instansi" >
                                 </div>
                                 
                                 <div class="form-group">
                                     <label>Unit Kerja</label>
-                                    <input type="text" class="form-control border-left-info" name="unit_kerja" placeholder="Masukkan nama Unit Kerja" >
+                                    <input type="text" class="form-control border-left-info" name="unit_kerja" placeholder="Masukkan nama unit kerja" >
                                 </div>
                             
                                 <div class="form-group">
                                     <label>Alamat</label>
-                                    <input type="text" class="form-control border-left-info" name="alamat" placeholder="Masukkan alamat satuan unit kerja" >
+                                    <input type="text" class="form-control border-left-info" name="alamat" placeholder="Masukkan alamat unit kerja" >
                                 </div>
                                 <div class="form-group">
                                     <label>Wilayah</label>
-                                    <input type="text" class="form-control border-left-info" name="wilayah" placeholder="Masukkan Provinsi satuan unit kerja" >
+                                    <input type="text" class="form-control border-left-info" name="wilayah" placeholder="Masukkan provinsi unit kerja" >
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -167,21 +167,21 @@
                                     <?php echo form_open('instansi/update/' . $value['id_instansi']) ?>
                                     <div class="form-group">
                                         <label>Instansi</label>
-                                        <input type="text" value="<?= $value['instansi']?>" class="form-control border-left-info" name="instansi" placeholder="Masukkan nama Instansi" >
+                                        <input type="text" value="<?= $value['instansi']?>" class="form-control border-left-info" name="instansi" placeholder="Masukkan nama instansi" >
                                     </div>
                                     
                                     <div class="form-group">
                                         <label>Unit Kerja</label>
-                                        <input type="text" value="<?= $value['unit_kerja']?>" class="form-control border-left-info" name="unit_kerja" placeholder="Masukkan nama Unit Kerja" >
+                                        <input type="text" value="<?= $value['unit_kerja']?>" class="form-control border-left-info" name="unit_kerja" placeholder="Masukkan nama Unit kerja" >
                                     </div>
                                 
                                     <div class="form-group">
                                         <label>Alamat</label>
-                                        <input type="text" value="<?= $value['alamat'] ?>" class="form-control border-left-info" name="alamat" placeholder="Masukkan alamat satuan unit kerja" >
+                                        <input type="text" value="<?= $value['alamat'] ?>" class="form-control border-left-info" name="alamat" placeholder="Masukkan alamat unit kerja" >
                                     </div>
                                     <div class="form-group">
                                         <label>Wilayah</label>
-                                        <input type="text" value="<?= $value['wilayah'] ?>" class="form-control border-left-info" name="wilayah" placeholder="Masukkan Provinsi satuan unit kerja" >
+                                        <input type="text" value="<?= $value['wilayah'] ?>" class="form-control border-left-info" name="wilayah" placeholder="Masukkan provinsi unit kerja" >
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -208,7 +208,7 @@
                                 </button>
                             </div>
                                 <div class="modal-body">
-                                    Apakah Anda yakin ingin menghapus data ini ???
+                                    Apakah Anda yakin ingin menghapus data ini ?
                                         
                                 </div>
                                 <div class="modal-footer">

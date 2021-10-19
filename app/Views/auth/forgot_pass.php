@@ -21,7 +21,7 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-2"><?= $title; ?></h1>
-                                        <p class="mb-4">Silahkan masukkan alamat email Anda dan kami akan mengirimkan tautan untuk mengatur ulang kata sandi Anda.</p>
+                                        <p class="mb-4">Silahkan masukkan alamat email Anda dan kami akan mengirimkan tautan untuk mengatur ulang password Anda.</p>
                                     </div>
                                     <?php 
                                     $errors = session()->getFlashdata('errors');
@@ -46,14 +46,14 @@
                                         <div class="form-group">
                                             <input type="text" name="useremail" class="form-control form-control-user border-left-primary"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Masukkan Username atau Email Anda">
+                                                placeholder="Masukkan username atau email.">
                                         </div>
                                         <button class="btn btn-primary btn-user btn-block">
                                             Lanjutkan
                                         </button>
                                         <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?= base_url('auth') ?>">Sudah Ingat Kata Sandi Anda? Masuk!</a>
+                                        <a class="small" href="<?= base_url('auth') ?>">Sudah ingat password Anda? Log In!</a>
                                     </div>
                                         
                                     <?php form_close() ?>

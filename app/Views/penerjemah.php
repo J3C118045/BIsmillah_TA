@@ -142,18 +142,18 @@
                             <?php echo form_open('penerjemah/save') ?>
                                 <div class="form-group">
                                     <label>NIP</label>
-                                    <input type="text" class="form-control border-left-info" name="nip" placeholder="NIP">
+                                    <input type="text" class="form-control border-left-info" name="nip" placeholder="Masukkan NIP">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label>NAMA</label>
-                                    <input type="text" class="form-control border-left-info" name="nama" placeholder="Nama Penerjemah">
+                                    <input type="text" class="form-control border-left-info" name="nama" placeholder="Masukkan nama penerjemah">
                                 </div>
 
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <label>Tempat Lahir</label>
-                                        <input type="text" class="form-control border-left-info" name="tempat" placeholder="Tempat Lahir">
+                                        <input type="text" class="form-control border-left-info" name="tempat" placeholder="Masukkan tempat lahir">
                                     </div>
 
                                     <div class="col-md-6">
@@ -165,12 +165,12 @@
 
                                 <div class="form-group">
                                     <label>E-mail</label>
-                                    <input type="text" class="form-control border-left-info" name="email" placeholder="Email">
+                                    <input type="text" class="form-control border-left-info" name="email" placeholder="Masukkan email">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Nomor Telepon</label>
-                                    <input type="text" class="form-control border-left-info" name="telepon" placeholder="No. Telepon">
+                                    <input type="text" class="form-control border-left-info" name="telepon" placeholder="Masukkan No. Telepon">
                                 </div>
 
                                 <div class="form-group row">
@@ -256,7 +256,7 @@
                 <!-- End of Add Modal -->
 
                 <!-- Edit Modal -->
-                <?php foreach($penerjemah as $key => $value) { ?>
+                <!-- <?php foreach($penerjemah as $key => $value) { ?>
                     <div class="modal fade" id="editModal<?= $value['id_penerjemah'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                         <div class="modal-content">
@@ -275,12 +275,12 @@
                             <input type="hidden" name='id_penerjemah' value="<?= $value['id_penerjemah'] ?>">
                             <div class="form-group">
                                 <label>NAMA</label>
-                                <input type="text" class="form-control border-left-info" name="nama" value="<?= $value['nama'] ?>" placeholder="Nama Penerjemah">
+                                <input type="text" class="form-control border-left-info" name="nama" value="<?= $value['nama'] ?>" placeholder="Masukkan nama penerjemah">
                             </div>
                             
                             <div class="form-group">
                                 <label>NIP</label>
-                                <input type="text" class="form-control border-left-info" name="nip" value="<?= $value['nip'] ?>" placeholder="NIP">
+                                <input type="text" class="form-control border-left-info" name="nip" value="<?= $value['nip'] ?>" placeholder="Masukkan NIP">
                             </div>
                             
                             <div class="form-group row">
@@ -452,7 +452,7 @@
                         </div>
                     </div>
                     </div>
-                <?php } ?>
+                <?php } ?> -->
                 <!-- End of Edit Modal -->
 
                 <!-- Delete Modal -->
@@ -469,7 +469,7 @@
                                 </button>
                             </div>
                                 <div class="modal-body">
-                                    Apakah Anda yakin ingin menghapus data ini ???
+                                    Apakah Anda yakin ingin menghapus data ini ?
                                         
                                 </div>
                                 <div class="modal-footer">

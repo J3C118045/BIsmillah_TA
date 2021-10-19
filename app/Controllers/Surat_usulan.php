@@ -68,56 +68,57 @@ class Surat_usulan extends BaseController
 			'no_surat'	=> [
 				'rules'	=> 'required|is_unique[surat_usulan.no_surat]',
 				'errors'	=> [
-					'required'	=> 'No. Surat Wajib diisi !!!',
-					'is_unique'	=> 'No. Surat sudah digunakan, harap periksa kembali...'
+					'required'	=> 'No. Surat harap diisi.',
+					'is_unique'	=> 'No. Surat sudah digunakan, silahkan periksa kembali.'
 				]
 			],
 			'tgl_surat'	=> [
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> 'Tanggal Surat Wajib diisi !!!',
+					'required'	=> 'Tanggal Surat harap diisi.',
 				]
 			],
 			'tgl_diterima'	=> [
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> 'Tanggal Diterima Wajib diisi !!!',
+					'required'	=> 'Tanggal Diterima harap diisi.',
 				]
 			],
             'kategori'	=> [
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> 'Jenis Surat Wajib diisi !!!',
+					'required'	=> 'Kategori Surat harap diisi.',
 				]
 			],
 			'pengirim'	=> [
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> 'Pengirim Wajib diisi !!!',
+					'required'	=> 'Pengirim harap diisi.',
 				]
 			],
 			'link'	=> [
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> 'Link Netbox Wajib diisi !!!',
+					'required'	=> 'Link netbox harap diisi.',
 				]
 			],
 		])) {
-$data = array(
-    'no_surat'      => $this->request->getPost('no_surat'),
-    'tgl_surat'     => $this->request->getPost('tgl_surat'),
-    'tgl_diterima'  => $this->request->getPost('tgl_diterima'),
-    'kategori'      => $this->request->getPost('kategori'),
-    'divisi'        => session()->get('id_divisi'),
-    'user'          => session()->get('id_user'),
-    'perihal'       => $this->request->getPost('perihal'),
-    'pengirim'      => $this->request->getPost('pengirim'),
-    'link'          => $this->request->getPost('link'),
-    'status'        => $this->request->getPost('status'),
-);
-$this->usulan->saveUsulan($data);
-session()->setFlashdata('pesan', 'Surat Usulan berhasil ditambahkan...');
-return redirect()->to(base_url('surat_usulan'));
+            $data = array(
+                'no_surat'      => $this->request->getPost('no_surat'),
+                'tgl_surat'     => $this->request->getPost('tgl_surat'),
+                'tgl_diterima'  => $this->request->getPost('tgl_diterima'),
+                'kategori'      => $this->request->getPost('kategori'),
+                'divisi'        => session()->get('id_divisi'),
+                'user'          => session()->get('id_user'),
+                'perihal'       => $this->request->getPost('perihal'),
+                'pengirim'      => $this->request->getPost('pengirim'),
+                'keterangan'    => $this->request->getPost('keterangan'),
+                'link'          => $this->request->getPost('link'),
+                'status'        => $this->request->getPost('status'),
+            );
+            $this->usulan->saveUsulan($data);
+            session()->setFlashdata('pesan', 'Surat Usulan berhasil ditambahkan.');
+            return redirect()->to(base_url('surat_usulan'));
         }
         session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
         return redirect()->to(base_url('surat_usulan'));
@@ -130,43 +131,43 @@ return redirect()->to(base_url('surat_usulan'));
 				'label'	=> 'No. Surat',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
-					'is_unique'	=> '{field} sudah digunakan, harap periksa kembali...'
+					'required'	=> '{field} harap diisi.',
+					'is_unique'	=> '{field} sudah digunakan, silahkan periksa kembali.'
 				]
 			],
 			'tgl_surat'	=> [
 				'label'	=> 'Tanggal Surat',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 			'tgl_diterima'	=> [
 				'label'	=> 'Tanggal Diterima',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
             'kategori'	=> [
-				'label'	=> 'Jenis Surat',
+				'label'	=> 'Kategori Surat',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 			'pengirim'	=> [
 				'label'	=> 'Pengirim',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 			'link'	=> [
-				'label'	=> 'Link Netbox',
+				'label'	=> 'Link netbox',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 		])) {
@@ -174,18 +175,18 @@ return redirect()->to(base_url('surat_usulan'));
                 'id_suratUsulan'    => $this->request->getPost('id_suratUsulan'), 
                 'no_surat'          => $this->request->getPost('no_surat'),
                 'kategori'          => $this->request->getPost('kategori'),
-                'perihal'               => $this->request->getPost('perihal'),
-                // 'tgl_update'        => date('Y-m-d-H:i'),
+                'perihal'           => $this->request->getPost('perihal'),
                 'pengirim'          => $this->request->getPost('pengirim'),
                 'tgl_diterima'      => $this->request->getPost('tgl_diterima'),
                 'tgl_surat'         => $this->request->getPost('tgl_surat'),
                 'divisi'            => session()->get('id_divisi'),
                 'user'              => session()->get('id_user'),
+                'keterangan'        => $this->request->getPost('keterangan'),
                 'link'              => $this->request->getPost('link'),
                 'status'            => $this->request->getPost('status'),
                ];
             $this->usulan->updateUsulan($data);
-            session()->setFlashdata('pesan', 'Surat Usulan berhasil diubah...');
+            session()->setFlashdata('pesan', 'Surat Usulan berhasil diubah.');
             return redirect()->to(base_url('surat_usulan'));
         } else {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
@@ -200,7 +201,7 @@ return redirect()->to(base_url('surat_usulan'));
             'id_suratUsulan'  => $id,
         ];
         $this->usulan->deleteUsulan($data);
-        session()->setFlashdata('pesan', 'Surat Usulan berhasil dihapus...');
+        session()->setFlashdata('pesan', 'Surat Usulan berhasil dihapus.');
         return redirect()->to(base_url('surat_usulan'));
     }
 

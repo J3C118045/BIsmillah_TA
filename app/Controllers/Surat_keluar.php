@@ -30,7 +30,6 @@ class Surat_keluar extends BaseController
 	}
 	public function index()
 	{
-		// if (session()->get('level') == 2) {
 			$data = array(
 				'title'		  	=> 'Surat Keluar',
 				'surat_keluar'	=> $this->surat_keluar->getData(),
@@ -38,15 +37,6 @@ class Surat_keluar extends BaseController
 				'divisi'    	=> $this->surat_keluar->getDiv(), 
 			);
 			return view('surat_keluar', $data);
-		// } else {
-		// 	$data = array(
-		// 		'title'		  	=> 'surat Keluar',
-		// 		'surat_keluar'	=> $this->surat_keluar->getData_forAdmin(),
-		// 		'kategori'    	=> $this->kategori->getData(),  
-		// 		'divisi'    	=> $this->surat_keluar->getDiv(), 
-		// 	);
-		// 	return view('surat_keluar', $data);
-		// }
 	}
 
 
@@ -94,50 +84,50 @@ class Surat_keluar extends BaseController
 				'label'	=> 'No. Surat',
 				'rules'	=> 'required|is_unique[surat_keluar.no_surat]',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
-					'is_unique'	=> '{field} sudah digunakan, harap periksa kembali...'
+					'required'	=> '{field} harap diisi.',
+					'is_unique'	=> '{field} sudah digunakan, silahkan periksa kembali.'
 				]
 			],
 			'tgl_surat'	=> [
 				'label'	=> 'Tanggal Surat',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 			'tgl_kirim'	=> [
 				'label'	=> 'Tanggal Kirim',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 			'divisi'	=> [
 				'label'	=> 'Bidang / Bagian',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 			'no_ktj'	=> [
 				'label'	=> 'No. KTJ',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 			'tujuan'	=> [
 				'label'	=> 'Tujuan',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 			'link'	=> [
 				'label'	=> 'Link Netbox',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 		])) {
@@ -157,7 +147,7 @@ class Surat_keluar extends BaseController
 				'link'					=> $this->request->getPost('link'),
 			);
 			$this->surat_keluar->saveSuratKeluar($data);
-			session()->setFlashdata('pesan', 'Surat Keluar berhasil ditambahkan...');
+			session()->setFlashdata('pesan', 'Surat Keluar berhasil ditambahkan.');
 			return redirect()->to(base_url('surat_keluar'));
 		} else {
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
@@ -173,50 +163,50 @@ class Surat_keluar extends BaseController
 				'label'	=> 'No. Surat',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
-					'is_unique'	=> '{field} sudah digunakan, harap periksa kembali...'
+					'required'	=> '{field} harap diisi.',
+					'is_unique'	=> '{field} sudah digunakan, silahkan periksa kembali.'
 				]
 			],
 			'tgl_surat'	=> [
 				'label'	=> 'Tanggal Surat',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 			'tgl_kirim'	=> [
 				'label'	=> 'Tanggal Kirim',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 			'divisi'	=> [
 				'label'	=> 'Bidang / Bagian',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 			'no_ktj'	=> [
 				'label'	=> 'No. KTJ',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 			'tujuan'	=> [
 				'label'	=> 'Tujuan',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 			'link'	=> [
 				'label'	=> 'Link Netbox',
 				'rules'	=> 'required',
 				'errors'	=> [
-					'required'	=> '{field} Wajib diisi !!!',
+					'required'	=> '{field} harap diisi.',
 				]
 			],
 		])) {
@@ -237,7 +227,7 @@ class Surat_keluar extends BaseController
 				'link'					=> $this->request->getPost('link'),
 			);
 			$this->surat_keluar->updateSuratKeluar($data);
-			session()->setFlashdata('pesan', 'Surat Keluar berhasil diubah...');
+			session()->setFlashdata('pesan', 'Surat Keluar berhasil diubah.');
 			return redirect()->to(base_url('surat_keluar'));
 		} else {
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
@@ -252,7 +242,7 @@ class Surat_keluar extends BaseController
 			'id_suratKeluar' => $id,
 		];
 		$this->surat_keluar->deleteSuratKeluar($data);
-		session()->setFlashdata('pesan', 'Surat Keluar berhasil dihapus...');
+		session()->setFlashdata('pesan', 'Surat Keluar berhasil dihapus.');
         return redirect()->to(base_url('surat_keluar'));
 	}
 

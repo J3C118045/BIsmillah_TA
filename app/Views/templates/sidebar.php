@@ -3,7 +3,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div class="sidebar-brand-icon">
-                    <img class="logo" src="<?= base_url(); ?>/img/logo-setkab.png" alt="">
+                    <img class="logo" src="<?= base_url(); ?>/img/garuda.png" alt="">
                 </div>
                 <div class="sidebar-divider-logo d-none d-sm-block"></div>
                 <div class="sidebar-brand-text" >e-JFP Internal</div>

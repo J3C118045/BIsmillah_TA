@@ -62,7 +62,7 @@
                                             <th style="vertical-align: middle;" class="text-center">No.</th>
                                             <th style="vertical-align: middle;" width="50%">No. Surat </br>Tanggal Surat</th>
                                             <th style="vertical-align: middle;">Tanggal Diterima</th>
-                                            <th style="vertical-align: middle;">Jenis Surat</th>
+                                            <th style="vertical-align: middle;">Kategori Surat</th>
                                             <th style="vertical-align: middle;" width="100%">Perihal </br>File</th>
                                             <th style="vertical-align: middle;">Pengirim</th>
                                             <th style="vertical-align: middle;">
@@ -198,9 +198,9 @@
 
                                 <div class="form-group row">
                                     <div class="col-md-6">
-                                    <label>Jenis Surat</label>
+                                    <label>Kategori Surat</label>
                                         <select name="kategori" class="form-control border-left-info" >
-                                            <option value="">-Pilih Jenis Surat-</option>
+                                            <option value="">-Pilih Kategori Surat-</option>
                                             <?php foreach ($kategori as $key => $value) { ?>
                                                 <option value="<?= $value['id_kategori'] ?>"><?= $value['nama_kategori'] ?></option>
                                             <?php } ?>
@@ -209,7 +209,7 @@
 
                                     <div class="col-md-6">
                                         <label>No. Surat</label>
-                                        <input type="text" class="form-control border-left-info" name="no_surat" placeholder="Masukkan Nomor Surat" >
+                                        <input type="text" class="form-control border-left-info" name="no_surat" placeholder="Masukkan No. Surat" >
                                     </div>
                                 </div>
                                 
@@ -238,7 +238,7 @@
 
                                 <div class="form-group">
                                     <label>Pengirim</label>
-                                    <input type="text" class="form-control border-left-info" name="pengirim" placeholder="Masukkan Nama / Instansi Pengirim">
+                                    <input type="text" class="form-control border-left-info" name="pengirim" placeholder="Masukkan nama / instansi pengirim">
                                 </div>
 
                                 <div class="form-group">
@@ -264,7 +264,7 @@
                                 <div class="form-group row">
                                     <div class="col-md-8">
                                         <label >Link Netbox</label>
-                                        <input type="text" name="link" class="form-control border-left-info" placeholder="Masukkan Link Netbox Surat" >
+                                        <input type="text" name="link" class="form-control border-left-info" placeholder="Masukkan link netbox surat" >
                                     </div>
 
                                     <div class="col-md-4">
@@ -312,7 +312,7 @@
 
                                 <div class="form-group">
                                 <label for="divisi">Bidang / Bagian</label>
-                                    <select name="divisi" id="divisi" class="form-control border-left-info divisi" required>
+                                    <select name="divisi" id="divisi" class="form-control border-left-info divisi" >
                                         <?php $cek = $value['divisi'] ?>
                                         <?php foreach ($divisi as $row) 
                                         { ?>
@@ -325,14 +325,14 @@
                                 
                                 <div class="form-group">
                                 <label for="ktj">KTJ</label>
-                                    <select name="no_ktj" id="ktj"  class="form-control form-control-md border-left-info ktj" required>
+                                    <select name="no_ktj" id="ktj"  class="form-control form-control-md border-left-info ktj" >
                                     </select>
                                 </div>
 
                                 <div class="form-group row">
                                     <div class="col-md-6">
-                                    <label>Jenis Surat</label>
-                                        <select name="kategori" class="form-control border-left-info" required>
+                                    <label>Kategori Surat</label>
+                                        <select name="kategori" class="form-control border-left-info" >
                                             <?php $selected = $value['kategori'] ?>
                                             <?php foreach ($kategori as $key => $kat) { ?>
                                                 <option value="<?= $kat['id_kategori'] ?>" <?= ($kat['id_kategori']==$selected) ? 'selected' : ''; ?>><?= $kat['nama_kategori'] ?></option>
@@ -341,7 +341,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label>No. Surat</label>
-                                        <input type="text" class="form-control border-left-info" name="no_surat" value="<?= $value['no_surat'] ?>" placeholder="Masukkan Nomor Surat" required>
+                                        <input type="text" class="form-control border-left-info" name="no_surat" value="<?= $value['no_surat'] ?>" placeholder="Masukkan No. Surat" >
                                     </div>
                                 </div>
 
@@ -369,7 +369,7 @@
 
                                 <div class="form-group">
                                     <label>Pengirim</label>
-                                    <input type="text" class="form-control border-left-info" name="pengirim" value="<?= $value['pengirim'] ?>" placeholder="Masukkan Nama / Instansi Pengirim">
+                                    <input type="text" class="form-control border-left-info" name="pengirim" value="<?= $value['pengirim'] ?>" placeholder="Masukkan nama / instansi pengirim">
                                 </div>
 
                                 <div class="form-group">
@@ -395,7 +395,7 @@
                                 <div class="form-group row">
                                     <div class="col-md-8">
                                         <label >Link Netbox</label>
-                                        <input type="text" name="link" class="form-control border-left-info" value="<?= $value['link'] ?>" placeholder="Masukkan Link Netbox Surat" required>
+                                        <input type="text" name="link" class="form-control border-left-info" value="<?= $value['link'] ?>" placeholder="Masukkan link netbox surat" >
                                     </div>
 
                                     <div class="col-md-4">
@@ -447,7 +447,7 @@
                                     </button>
                                 </div>
                                     <div class="modal-body">
-                                        Apakah Anda yakin ingin menghapus data ini ???
+                                        Apakah Anda yakin ingin menghapus data ini ?
                                             
                                     </div>
                                     <div class="modal-footer">

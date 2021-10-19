@@ -29,8 +29,8 @@ class Divisi extends BaseController
 			'nama_divisi' => [
 				'rules'	=> 'required|is_string',
 				'errors'	=> [
-					'required'	=> 'Nama bidang / bagian wajib diisi !!!',
-					'is_string'	=> 'Data isian harus berupa huruf'
+					'required'	=> 'Nama bidang / bagian harap diisi',
+					'is_string'	=> 'Harap masukkan isian berupa huruf.'
 				]
 			]
 		])) {
@@ -38,7 +38,7 @@ class Divisi extends BaseController
 				'nama_divisi'	=> $this->request->getPost('nama_divisi'),
 			];
 			$this->divisi->saveDivisi($data);
-			session()->setFlashdata('pesan', 'Data bidang / bagian berhasil ditambahkan...');
+			session()->setFlashdata('pesan', 'Data bidang / bagian berhasil ditambahkan.');
 			return redirect()->to(base_url('divisi'));
 		} else {
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
@@ -54,7 +54,7 @@ class Divisi extends BaseController
 			'nama_divisi'	=> $this->request->getPost('nama_divisi'),
 		];
 		$this->divisi->updateDivisi($data);
-		session()->setFlashdata('pesan', 'Data bidang / bagian berhasil diubah...');
+		session()->setFlashdata('pesan', 'Data bidang / bagian berhasil diubah.');
 		return redirect()->to(base_url('divisi'));
 	}
 
@@ -64,7 +64,7 @@ class Divisi extends BaseController
 			'id_divisi'	=> $id,
 		];
 		$this->divisi->deleteDivisi($data);
-		session()->setFlashdata('pesan', "Data bidang / bagian berhasil dihapus...");
+		session()->setFlashdata('pesan', "Data bidang / bagian berhasil dihapus.");
 		return redirect()->to(base_url('divisi'));
 	}
 

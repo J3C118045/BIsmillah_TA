@@ -29,8 +29,8 @@ class Kategori extends BaseController
 			'nama_kategori' => [
 				'rules' => 'required|is_string',
 				'errors' => [
-					'required'	=> 'Nama kategori wajib diisi !!!',
-					'is_string'	=> 'Data isian harus berupa huruf'
+					'required'	=> 'Nama kategori harap diisi.',
+					'is_string'	=> 'Harap masukkan isian berupa huruf.'
 				]
 			]
 		])) {
@@ -38,7 +38,7 @@ class Kategori extends BaseController
 				'nama_kategori'	=> $this->request->getPost('nama_kategori'),
 			];
 			$this->kategori->saveKategori($data);
-			session()->setFlashdata('pesan', 'Data kategori surat berhasil ditambahkan!!!');
+			session()->setFlashdata('pesan', 'Data kategori surat berhasil ditambahkan.');
 			return redirect()->to(base_url('kategori'));
 		} else {
 			session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
@@ -54,7 +54,7 @@ class Kategori extends BaseController
 			'nama_kategori'	=> $this->request->getPost('nama_kategori'),
 		];
 		$this->kategori->updateKategori($data);
-		session()->setFlashdata('pesan', 'Data berhasil diubah...');
+		session()->setFlashdata('pesan', 'Data berhasil diubah.');
 		return redirect()->to(base_url('kategori'));
 	}
 
@@ -64,7 +64,7 @@ class Kategori extends BaseController
 			'id_kategori'	=> $id,
 		];
 		$this->kategori->deleteKategori($data);
-		session()->setFlashdata('pesan', "Data berhasil dihapus...");
+		session()->setFlashdata('pesan', "Data berhasil dihapus.");
 		return redirect()->to(base_url('kategori'));
 	}
 

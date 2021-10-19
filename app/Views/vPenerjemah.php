@@ -40,12 +40,12 @@
                                                 <input type="hidden" name='id_penerjemah' value="<?= $vpenerjemah['id_penerjemah'] ?>">
                                                 <div class="form-group">
                                                     <label>NAMA</label>
-                                                    <input type="text" class="form-control border-left-info" name="nama" value="<?= $vpenerjemah['nama'] ?>" placeholder="Nama Penerjemah">    
+                                                    <input type="text" class="form-control border-left-info" name="nama" value="<?= $vpenerjemah['nama'] ?>" placeholder="Masukkan nama penerjemah">    
                                                 </div>
                                                 
                                                 <div class="form-group">
                                                     <label>Tempat Lahir</label>
-                                                    <input type="text" class="form-control border-left-info" name="tempat" value="<?= $vpenerjemah['tempat'] ?>" placeholder="Tempat Lahir">
+                                                    <input type="text" class="form-control border-left-info" name="tempat" value="<?= $vpenerjemah['tempat'] ?>" placeholder="Masukkan tempat lahir">
                                                 </div>
                                             
                                                 <div class="form-group">
@@ -55,12 +55,12 @@
 
                                                 <div class="form-group">
                                                     <label>E-mail</label>
-                                                    <input type="text" class="form-control border-left-info" name="email" value="<?= $vpenerjemah['email'] ?>" placeholder="Email">
+                                                    <input type="text" class="form-control border-left-info" name="email" value="<?= $vpenerjemah['email'] ?>" placeholder="Masukkan email">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Nomor Telepon</label>
-                                                    <input type="text" class="form-control border-left-info" name="telepon" value="<?= $vpenerjemah['telepon'] ?>" placeholder="No. Telepon">
+                                                    <input type="text" class="form-control border-left-info" name="telepon" value="<?= $vpenerjemah['telepon'] ?>" placeholder="Masukkan No. Telepon">
                                                 </div>
 
                                                 <div class="form-group">
@@ -85,7 +85,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>NIP</label>
-                                                    <input type="text" class="form-control border-left-info" name="nip" value="<?= $vpenerjemah['nip'] ?>" placeholder="NIP">
+                                                    <input type="text" class="form-control border-left-info" name="nip" value="<?= $vpenerjemah['nip'] ?>" placeholder="Masukkan NIP">
                                                 </div>
 
                                                 <div class="form-group">

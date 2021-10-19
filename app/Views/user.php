@@ -126,7 +126,7 @@
                                 <?php echo form_open_multipart('pengguna/save') ?>
                                 <div class="form-group">
                                     <label>Username</label>
-                                    <input type="text" class="form-control border-left-info" name="username" placeholder="Masukkan nama user" >
+                                    <input type="text" class="form-control border-left-info" name="username" placeholder="Masukkan username" >
                                 </div>
                                 
                                 <div class="form-group">
@@ -198,7 +198,7 @@
                                         <div class="form-group row">
                                             <div class="col-md-6">
                                                 <label>Password</label>
-                                                <input type="password" value="<?= $value['password'] ?>" name="password" class="form-control" placeholder="Enter password user">
+                                                <input type="password" value="<?= $value['password'] ?>" name="password" class="form-control" placeholder="Masukkan password user">
                                             </div>
                                             <div class="col-md-6">
                                                 <label>Status</label>
@@ -263,7 +263,7 @@
                                 </button>
                             </div>
                                 <div class="modal-body">
-                                    Apakah Anda yakin ingin menghapus data ini ???
+                                    Apakah Anda yakin ingin menghapus data ini ?
                                         
                                 </div>
                                 <div class="modal-footer">

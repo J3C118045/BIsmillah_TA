@@ -52,7 +52,7 @@
                                     <tr>
                                             <th style="vertical-align: middle;" class="text-center">No.</th>
                                             <th style="vertical-align: middle;">Kode KTJ</th>
-                                            <th style="vertical-align: middle;">Nama KTJ</th>
+                                            <th style="vertical-align: middle;">Isi KTJ</th>
                                             <th style="vertical-align: middle;">Aksi</th>
                                         </tr>
                                     </thead>
@@ -110,12 +110,12 @@
                                 <?php echo form_open('ktj/save') ?>
                                 <div class="form-group">
                                     <label>Kode KTJ</label>
-                                    <input type="text" class="form-control border-left-info" name="kode_tugas" placeholder="Masukkan Kode KTJ. (Ex: KTJ/KabidCoba/1)" >
+                                    <input type="text" class="form-control border-left-info" name="kode_tugas" placeholder="Masukkan kode KTJ. (Ex: KTJ/KabidCoba/1)" >
                                 </div>
 
                                 <div class="form-group">
                                     <label>Isi KTJ</label>
-                                    <textarea name="list_tugas" cols="53" rows="5" class="form-control border-left-info" placeholder="Masukkan Isi KTJ"></textarea>
+                                    <textarea name="list_tugas" cols="53" rows="5" class="form-control border-left-info" placeholder="Masukkan isi KTJ"></textarea>
                                 </div>
                                 
                                 
@@ -147,11 +147,11 @@
                                     <?php echo form_open('ktj/update/' . $value['id_tugas']) ?>
                                     <div class="form-group">
                                         <label>Kode KTJ</label>
-                                        <input type="text" value="<?= $value['kode_tugas']?>" class="form-control border-left-info" name="kode_tugas" placeholder="Masukkan Kode KTJ">
+                                        <input type="text" value="<?= $value['kode_tugas']?>" class="form-control border-left-info" name="kode_tugas" placeholder="Masukkan kode KTJ. (Ex: KTJ/KabidCoba/1)">
                                     </div>
                                         
                                     <div class="form-group">
-                                        <label>Isi Tugas</label>
+                                        <label>Isi KTJ</label>
                                         <textarea name="list_tugas" cols="53" rows="5" class="form-control border-left-info" > <?= $value['list_tugas'] ?> </textarea>
                                     </div>
                                 </div>
@@ -180,7 +180,7 @@
                                 </button>
                             </div>
                                 <div class="modal-body">
-                                    Apakah Anda yakin ingin menghapus data ini ???
+                                    Apakah Anda yakin ingin menghapus data ini ?
                                         
                                 </div>
                                 <div class="modal-footer">

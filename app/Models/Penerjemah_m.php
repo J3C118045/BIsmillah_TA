@@ -40,7 +40,7 @@ class Penerjemah_m extends Model
     public function getJabatan()
     {
         $query = $this->db->table('penerjemah')
-        ->select('Count(id_penerjemah) AS jumlah, jabatan as jabatan')
+        ->select('jabatan as jabatan, Count(jabatan) AS jumlah, ROUND((Count(jabatan) * 100 / (select Count(*) from penerjemah)), 2) AS persentase')
 		->join('instansi','instansi.id_instansi=penerjemah.id_instansi_penerjemah')
 		->groupBy('jabatan')
 		->get()
@@ -61,7 +61,7 @@ class Penerjemah_m extends Model
     public function getPersen()
     {
         $query = $this->db->table('penerjemah')
-        ->select('status as status, Count(status) AS jumlah, ROUND((Count(status) * 100 / (select Count(*) from penerjemah)), 1) AS persentase')
+        ->select('status as status, Count(status) AS jumlah, ROUND((Count(status) * 100 / (select Count(*) from penerjemah)), 2) AS persentase')
 		->groupBy('status')
 		->get()
         ->getResultArray();

@@ -30,51 +30,45 @@ class Pengguna extends BaseController
 	{
 		if ($this->validate([
 			'username' => [
-                'label' => 'Username',
                 'rules' => 'required|is_unique[user.username]|max_length[32]',
                 'errors' => [
-                    'required'      => '{field} Wajib diisi!!!',
-					'is_unique'		=> 'Nama User telah digunakan',
-                    'max_length'    => 'Maksimal 32 karakter'
+                    'required'      => 'Username harap diisi.',
+					'is_unique'		=> 'Username telah digunakan, silahkan periksa kembali.',
+                    'max_length'    => 'Maksimal 32 karakter.'
                 ]
             ],
             'email' => [
-                'label' => 'Email',
                 'rules' => 'required|is_unique[user.email]',
                 'errors' => [
-                    'required' => '{field} Wajib diisi !!!',
-                    'is_unique' => 'Alamat Email pernah digunakan',
+                    'required' => 'Email harap diisi.',
+                    'is_unique' => 'Alamat Email telah digunakan, silahkan periksa kembali.',
                 ]
             ],
             'password' => [
-                'label' => 'Password',
                 'rules' => 'required|min_length[8]',
                 'errors' => [
-                    'required' 		=> '{field} Wajib diisi !!!',
+                    'required' 		=> 'Password harap diisi.',
 					'min_length'	=> 'Minimal 8 karakter'
                 ]
             ],
             'level' => [
-                'label' => 'Status',
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Wajib diisi !!!',
+                    'required' => 'Status pengguna harap diisi.',
                 ]
             ],
             'id_divisi' => [
-                'label' => 'Bidang / Bagian',
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Wajib diisi !!!',
+                    'required' => 'Bidang / Bagian harap diisi.',
                 ]
             ],
             'foto' => [
-                'label' => 'Foto',
                 'rules' => 'uploaded[foto]|max_size[foto,1824]|mime_in[foto,image/png,image/jpg,image/jpeg]',
                 'errors' => [
-                    'uploaded' => '{field} Wajib diisi !!!',
-                    'max_size' => 'Ukuran maksimal {field} 2mb',
-                    'mime_in' => 'Hanya diperbolehkan upload {field} berformat png/jpg/jpeg',
+                    'uploaded' => 'Foto harap diisi.',
+                    'max_size' => 'Ukuran maksimal foto 2mb.',
+                    'mime_in' => 'Hanya diperbolehkan upload foto berformat png/jpg/jpeg.',
                 ]
             ],
 		])) {
@@ -93,7 +87,7 @@ class Pengguna extends BaseController
 			);
             $foto->move('img/ava/', $nama_file); //directory file
 			$this->user->saveUser($data);
-			session()->setFlashdata('pesan', 'Data akun pengguna berhasil ditambahkan...');
+			session()->setFlashdata('pesan', 'Data akun pengguna berhasil ditambahkan.');
 			return redirect()->to(base_url('pengguna'));
 		} else {
 			//if not valid
@@ -106,42 +100,37 @@ class Pengguna extends BaseController
 	{
 		if ($this->validate([
             'email' => [
-                'label' => 'Email',
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Wajib diisi !!!',
-                    'is_unique' => 'Alamat Email pernah digunakan',
+                    'required' => 'Email harap diisi.',
                 ]
             ],
             'password' => [
-                'label' => 'Password',
                 'rules' => 'required|min_length[8]',
                 'errors' => [
-                    'required' 		=> '{field} Wajib diisi !!!',
-					'min_length'	=> 'Minimal 8 karakter'
+                    'required' 		=> 'Password harap diisi.',
+					'min_length'	=> 'Minimal 8 karakter.'
                 ]
             ],
             'level' => [
-                'label' => 'Status',
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Wajib diisi !!!',
+                    'required' => 'Status harap diisi.',
                 ]
             ],
             'id_divisi' => [
-                'label' => 'Bidang / Bagian',
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Wajib diisi !!!',
+                    'required' => 'Bidang / Bagian harap diisi.',
                 ]
             ],
             'foto' => [
                 'label' => 'Foto',
                 'rules' => 'max_size[foto,1824]|mime_in[foto,image/png,image/jpg,image/jpeg]',
                 'errors' => [
-                    'uploaded' => '{field} Wajib diisi !!!',
-                    'max_size' => 'Ukuran maksimal {field} 2mb',
-                    'mime_in' => 'Hanya diperbolehkan upload {field} berformat png/jpg/jpeg',
+                    'uploaded' => 'Foto harap diisi.',
+                    'max_size' => 'Ukuran maksimal foto 2mb.',
+                    'mime_in' => 'Hanya diperbolehkan upload foto berformat png/jpg/jpeg.',
                 ]
             ],
 		])) {
@@ -174,7 +163,7 @@ class Pengguna extends BaseController
 				$foto->move('img/ava', $nama_file);
 				$this->user->updateUser($data);
 			}
-			session()->setFlashdata('pesan', 'Data akun pengguna berhasil diubah...');
+			session()->setFlashdata('pesan', 'Data akun pengguna berhasil diubah.');
 			return redirect()->to(base_url('pengguna'));
 		} else {
 			//if not valid
@@ -191,7 +180,7 @@ class Pengguna extends BaseController
 			'id_user'	=> $id,
 		];
 		$this->user->deleteUser($data);
-		session()->setFlashdata('pesan', "Data akun pengguna berhasil dihapus...");
+		session()->setFlashdata('pesan', "Data akun pengguna berhasil dihapus.");
 		return redirect()->to(base_url('pengguna'));
 	}
 }

@@ -178,7 +178,7 @@
                             
                                 <div class="form-group">
                                     <label>No. Surat</label>
-                                    <input type="text" class="form-control border-left-info" name="no_surat" placeholder="Masukkan Nomor Surat" >
+                                    <input type="text" class="form-control border-left-info" name="no_surat" placeholder="Masukkan No. Surat" >
                                 </div>
 
                                 <div class="form-group row">
@@ -205,7 +205,7 @@
 
                                 <div class="form-group">
                                 <label>Tujuan</label>
-                                        <input type="text" class="form-control border-left-info" name="tujuan" placeholder="Masukkan Tujuan Surat" >
+                                        <input type="text" class="form-control border-left-info" name="tujuan" placeholder="Masukkan tujuan surat" >
                                 </div>
 
                                 <div class="form-group">
@@ -235,7 +235,7 @@
 
                                 <div class="form-group">
                                     <label >Link Netbox</label>
-                                    <input type="text" name="link" class="form-control border-left-info" placeholder="Masukkan Link Netbox Surat" >
+                                    <input type="text" name="link" class="form-control border-left-info" placeholder="Masukkan link netbox surat" >
                                 </div>
                             
                             </div>
@@ -298,7 +298,7 @@
 
                                 <div class="form-group">
                                     <label>No. Surat</label>
-                                    <input type="text" class="form-control border-left-info" name="no_surat" placeholder="Masukkan Nomor Surat"  value="<?= $value['no_surat'] ?>">
+                                    <input type="text" class="form-control border-left-info" name="no_surat" placeholder="Masukkan No. Surat"  value="<?= $value['no_surat'] ?>">
                                 </div>
 
                                 <div class="form-group row">
@@ -355,7 +355,7 @@
 
                                 <div class="form-group">
                                     <label >Link Netbox</label>
-                                    <input type="text" name="link" class="form-control border-left-info" placeholder="Masukkan Link Netbox Surat"  value="<?= $value['link'] ?>">
+                                    <input type="text" name="link" class="form-control border-left-info" placeholder="Masukkan link netbox surat"  value="<?= $value['link'] ?>">
                                 </div>
 
                                 </div>
@@ -384,7 +384,7 @@
                                     </button>
                                 </div>
                                     <div class="modal-body">
-                                        Apakah Anda yakin ingin menghapus data ini ???
+                                        Apakah Anda yakin ingin menghapus data ini ?
                                             
                                     </div>
                                     <div class="modal-footer">
