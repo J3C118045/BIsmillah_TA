@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2021 at 04:35 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
+-- Waktu pembuatan: 19 Okt 2021 pada 09.34
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `divisi`
+-- Struktur dari tabel `divisi`
 --
 
 CREATE TABLE `divisi` (
@@ -34,7 +34,7 @@ CREATE TABLE `divisi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `divisi`
+-- Dumping data untuk tabel `divisi`
 --
 
 INSERT INTO `divisi` (`id_divisi`, `nama_divisi`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `divisi` (`id_divisi`, `nama_divisi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `instansi`
+-- Struktur dari tabel `instansi`
 --
 
 CREATE TABLE `instansi` (
@@ -62,7 +62,7 @@ CREATE TABLE `instansi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `instansi`
+-- Dumping data untuk tabel `instansi`
 --
 
 INSERT INTO `instansi` (`id_instansi`, `instansi`, `unit_kerja`, `alamat`, `wilayah`) VALUES
@@ -197,7 +197,7 @@ INSERT INTO `instansi` (`id_instansi`, `instansi`, `unit_kerja`, `alamat`, `wila
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -206,7 +206,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
@@ -228,7 +228,7 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penerjemah`
+-- Struktur dari tabel `penerjemah`
 --
 
 CREATE TABLE `penerjemah` (
@@ -248,7 +248,7 @@ CREATE TABLE `penerjemah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `penerjemah`
+-- Dumping data untuk tabel `penerjemah`
 --
 
 INSERT INTO `penerjemah` (`id_penerjemah`, `nama`, `nip`, `tempat`, `tanggal_lahir`, `email`, `telepon`, `golongan`, `tmtgol`, `jabatan`, `tmtjab`, `id_instansi_penerjemah`, `status`) VALUES
@@ -468,7 +468,7 @@ INSERT INTO `penerjemah` (`id_penerjemah`, `nama`, `nip`, `tempat`, `tanggal_lah
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reset_password`
+-- Struktur dari tabel `reset_password`
 --
 
 CREATE TABLE `reset_password` (
@@ -479,7 +479,7 @@ CREATE TABLE `reset_password` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `reset_password`
+-- Dumping data untuk tabel `reset_password`
 --
 
 INSERT INTO `reset_password` (`id_token`, `id_user`, `token`, `keterangan`) VALUES
@@ -534,12 +534,24 @@ INSERT INTO `reset_password` (`id_token`, `id_user`, `token`, `keterangan`) VALU
 (50, 2, 'zf3WPohne8pB1lSLrvARxUiqjTb4dkI6t7VDZHgG9m0O2sJwQM', 0),
 (51, 2, 'bBjOrCHu5N2PLVdqYxefwQ3MAIK4tvalpEZiT0co8F96DU7kms', 0),
 (52, 2, 'BFksiZw1LPpvRm2gtfTycEbhGNCJz4n7I9DQ3d8oXxMSAO5Yj0', 1),
-(53, 21, 'LEndIyN3f4sbpC7XrlDuV2J80ZTzatxmW6PqOUoS1QKjwMG9YH', 1);
+(53, 21, 'LEndIyN3f4sbpC7XrlDuV2J80ZTzatxmW6PqOUoS1QKjwMG9YH', 1),
+(54, 21, 'o3FLGnmKuqPUl5r8QcNtgeTzYvdbiJE7XDfI1pjSZVwWxChMy6', 0),
+(55, 21, '31rJFXV0IAWyOtxv7jSeYRb5c2aBUfq6h4H9GDnLCNumwQsozE', 0),
+(56, 21, 'L6uUmob5IFMsiOKqpxfNAawXS9eRcWZHY7h38GlrnE1gC2kzdB', 0),
+(57, 21, 'AiREosb4qFZOCaefGvuVJHyQ17kxNPm8WwjD9zK26d50chMUYg', 0),
+(58, 21, 'Z0PBjW9f5mCivDbqcsNMJgwax4KLuYeIUkpQ76rdytoFlTHO83', 0),
+(59, 1, 'Nl8cyhZMjLs4eoY52rwUFDPKnTS396dabORuXkQIiEHJvABVtp', 0),
+(60, 21, 'rO1gzD32AsexKIwVEBTLh6NdGt8oWnMulkp9bajyQXmi7UHPSR', 0),
+(61, 21, 'oU7SMGCAB9zVpEmsDd5qLIu0hWHlj8tKiwY31OgxTk6FvnRfPQ', 1),
+(62, 1, 'eGIzQw3SnlZ0icsNAuhDx8fqUgjpCXkV6H9Y4b1rOJLoMPaT2R', 0),
+(63, 21, 'a3WBbycY5SpR6H8olZqvQJi42NEdG0gxeUIfuD7hPLTXtFAMzV', 0),
+(64, 1, 'a92CypP8cLo6n1RHiVv34dQKXUOZSuMgDEFY0jJzqBbl7ITwmA', 1),
+(65, 21, 'xRzyQAEcaStXrFl3iO2vCTnfZMd10km4oIDKje9Uu6sWbLHphG', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_keluar`
+-- Struktur dari tabel `surat_keluar`
 --
 
 CREATE TABLE `surat_keluar` (
@@ -560,7 +572,7 @@ CREATE TABLE `surat_keluar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `surat_keluar`
+-- Dumping data untuk tabel `surat_keluar`
 --
 
 INSERT INTO `surat_keluar` (`id_suratKeluar`, `no_surat`, `tgl_surat`, `tgl_kirim`, `divisi`, `no_ktj`, `user`, `tujuan`, `perihal`, `disposisi_seskab`, `disposisi_waseskab`, `disposisi_deputi`, `disposisi_kapus`, `link`) VALUES
@@ -574,7 +586,7 @@ INSERT INTO `surat_keluar` (`id_suratKeluar`, `no_surat`, `tgl_surat`, `tgl_kiri
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_masuk`
+-- Struktur dari tabel `surat_masuk`
 --
 
 CREATE TABLE `surat_masuk` (
@@ -596,7 +608,7 @@ CREATE TABLE `surat_masuk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `surat_masuk`
+-- Dumping data untuk tabel `surat_masuk`
 --
 
 INSERT INTO `surat_masuk` (`id_suratMasuk`, `no_surat`, `tgl_surat`, `tgl_diterima`, `kategori`, `divisi`, `no_ktj`, `user`, `pengirim`, `perihal`, `disposisi_waseskab`, `disposisi_deputi`, `disposisi_kapus`, `link`, `status`) VALUES
@@ -616,7 +628,7 @@ INSERT INTO `surat_masuk` (`id_suratMasuk`, `no_surat`, `tgl_surat`, `tgl_diteri
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_usulan`
+-- Struktur dari tabel `surat_usulan`
 --
 
 CREATE TABLE `surat_usulan` (
@@ -635,7 +647,7 @@ CREATE TABLE `surat_usulan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `surat_usulan`
+-- Dumping data untuk tabel `surat_usulan`
 --
 
 INSERT INTO `surat_usulan` (`id_suratUsulan`, `no_surat`, `tgl_surat`, `tgl_diterima`, `kategori`, `divisi`, `user`, `pengirim`, `perihal`, `link`, `keterangan`, `status`) VALUES
@@ -644,12 +656,12 @@ INSERT INTO `surat_usulan` (`id_suratUsulan`, `no_surat`, `tgl_surat`, `tgl_dite
 (3, 'B-121/DUMMY/03/2021', '2021-04-09', '2021-04-12', 4, 8, 1, 'Bpk. Deni', 'Pengangkatan Penerjemah', 'http://www.link-file.com', NULL, 'Disetujui'),
 (4, 'B-81/DUMMY/06/2021', '2021-06-14', '2021-06-17', 6, 7, 2, 'Pak Anang', 'safdfcscsdcsdcsdc', 'https://ini-link-netbox.com', NULL, 'Diajukan'),
 (6, 'B-333/DUMMY/07/2021', '2021-07-15', '2021-07-17', 6, 4, 21, 'Kementerian XYZ', 'sadsad', 'http://www.link-file.com', NULL, 'Diajukan'),
-(7, 'B-14/DUMMY/09/2021', '2021-09-01', '2021-09-03', 6, 8, 1, 'qsfdsf', 'dfsf', 'http://netbox.com', NULL, 'Diajukan');
+(7, 'B-14/DUMMY/09/2021', '2021-09-01', '2021-09-03', 6, 8, 1, 'qsfdsf', 'dfsf', 'http://netbox.com', 'gagal', 'Ditolak');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tugas`
+-- Struktur dari tabel `tugas`
 --
 
 CREATE TABLE `tugas` (
@@ -660,7 +672,7 @@ CREATE TABLE `tugas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tugas`
+-- Dumping data untuk tabel `tugas`
 --
 
 INSERT INTO `tugas` (`id_tugas`, `id_divisi_tugas`, `kode_tugas`, `list_tugas`) VALUES
@@ -714,7 +726,7 @@ INSERT INTO `tugas` (`id_tugas`, `id_divisi_tugas`, `kode_tugas`, `list_tugas`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -728,52 +740,52 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `email`, `password`, `level`, `id_divisi`, `foto`) VALUES
-(1, 'admin', 'maulanaryhn@gmail.com', '$2y$10$TjXm2UshxSoZXbdGZK.gz.KPZQMUxREnMZTySPqAGz.abq.qOm5dq', '1', 8, '1627573900_4ebb683d55921ddd41de.jpg'),
+(1, 'admin', 'muhammad_rayhan@apps.ipb.ac.id', '$2y$10$q/4cuEgivpQoMwp.Lg8nJOPhDgVL1lHoJotCKYbtz3okhlK2X.WIy', '1', 8, '1627573900_4ebb683d55921ddd41de.jpg'),
 (2, 'user', 'maulanaryhn.corp@gmail.com', '$2y$10$vQLBXuVgvuroHmjHbIXag.1ApUGXAn7EKoJtGljCOOySp8qSKqOTK', '2', 7, '1627573886_ced584ce453410547873.jpg'),
-(21, 'test', 'muhammad_rayhan@apps.ipb.ac.id', '$2y$10$UYLlNwhKx9G9BE/xqZPcQ.cC1rw2TF7RZQ7HjJh1eJVmgiRi45RFi', '2', 4, '1627573867_7d5aa8bc743473c6e5dc.jpg');
+(21, 'test', 'maulanaryhn@gmail.com', NULL, '2', 4, '1627573867_7d5aa8bc743473c6e5dc.jpg');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `divisi`
+-- Indeks untuk tabel `divisi`
 --
 ALTER TABLE `divisi`
   ADD PRIMARY KEY (`id_divisi`);
 
 --
--- Indexes for table `instansi`
+-- Indeks untuk tabel `instansi`
 --
 ALTER TABLE `instansi`
   ADD PRIMARY KEY (`id_instansi`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `penerjemah`
+-- Indeks untuk tabel `penerjemah`
 --
 ALTER TABLE `penerjemah`
   ADD PRIMARY KEY (`id_penerjemah`),
   ADD KEY `id_instansi_penerjemah` (`id_instansi_penerjemah`);
 
 --
--- Indexes for table `reset_password`
+-- Indeks untuk tabel `reset_password`
 --
 ALTER TABLE `reset_password`
   ADD PRIMARY KEY (`id_token`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `surat_keluar`
+-- Indeks untuk tabel `surat_keluar`
 --
 ALTER TABLE `surat_keluar`
   ADD PRIMARY KEY (`id_suratKeluar`),
@@ -782,7 +794,7 @@ ALTER TABLE `surat_keluar`
   ADD KEY `no_ktj` (`no_ktj`);
 
 --
--- Indexes for table `surat_masuk`
+-- Indeks untuk tabel `surat_masuk`
 --
 ALTER TABLE `surat_masuk`
   ADD PRIMARY KEY (`id_suratMasuk`),
@@ -792,7 +804,7 @@ ALTER TABLE `surat_masuk`
   ADD KEY `kategori` (`kategori`);
 
 --
--- Indexes for table `surat_usulan`
+-- Indeks untuk tabel `surat_usulan`
 --
 ALTER TABLE `surat_usulan`
   ADD PRIMARY KEY (`id_suratUsulan`),
@@ -801,14 +813,14 @@ ALTER TABLE `surat_usulan`
   ADD KEY `surat_usulan_ibfk_3` (`user`);
 
 --
--- Indexes for table `tugas`
+-- Indeks untuk tabel `tugas`
 --
 ALTER TABLE `tugas`
   ADD PRIMARY KEY (`id_tugas`),
   ADD KEY `id_divisi` (`id_divisi_tugas`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`),
@@ -816,87 +828,87 @@ ALTER TABLE `user`
   ADD KEY `id_divisi` (`id_divisi`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `divisi`
+-- AUTO_INCREMENT untuk tabel `divisi`
 --
 ALTER TABLE `divisi`
   MODIFY `id_divisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `instansi`
+-- AUTO_INCREMENT untuk tabel `instansi`
 --
 ALTER TABLE `instansi`
   MODIFY `id_instansi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `penerjemah`
+-- AUTO_INCREMENT untuk tabel `penerjemah`
 --
 ALTER TABLE `penerjemah`
   MODIFY `id_penerjemah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
 
 --
--- AUTO_INCREMENT for table `reset_password`
+-- AUTO_INCREMENT untuk tabel `reset_password`
 --
 ALTER TABLE `reset_password`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
--- AUTO_INCREMENT for table `surat_keluar`
+-- AUTO_INCREMENT untuk tabel `surat_keluar`
 --
 ALTER TABLE `surat_keluar`
   MODIFY `id_suratKeluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `surat_masuk`
+-- AUTO_INCREMENT untuk tabel `surat_masuk`
 --
 ALTER TABLE `surat_masuk`
-  MODIFY `id_suratMasuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_suratMasuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `surat_usulan`
+-- AUTO_INCREMENT untuk tabel `surat_usulan`
 --
 ALTER TABLE `surat_usulan`
-  MODIFY `id_suratUsulan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_suratUsulan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tugas`
+-- AUTO_INCREMENT untuk tabel `tugas`
 --
 ALTER TABLE `tugas`
   MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `penerjemah`
+-- Ketidakleluasaan untuk tabel `penerjemah`
 --
 ALTER TABLE `penerjemah`
   ADD CONSTRAINT `fk_id_instansi` FOREIGN KEY (`id_instansi_penerjemah`) REFERENCES `instansi` (`id_instansi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `reset_password`
+-- Ketidakleluasaan untuk tabel `reset_password`
 --
 ALTER TABLE `reset_password`
   ADD CONSTRAINT `reset_password_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `surat_keluar`
+-- Ketidakleluasaan untuk tabel `surat_keluar`
 --
 ALTER TABLE `surat_keluar`
   ADD CONSTRAINT `surat_keluar_ibfk_1` FOREIGN KEY (`divisi`) REFERENCES `divisi` (`id_divisi`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -904,7 +916,7 @@ ALTER TABLE `surat_keluar`
   ADD CONSTRAINT `surat_keluar_ibfk_3` FOREIGN KEY (`user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `surat_masuk`
+-- Ketidakleluasaan untuk tabel `surat_masuk`
 --
 ALTER TABLE `surat_masuk`
   ADD CONSTRAINT `surat_masuk_ibfk_1` FOREIGN KEY (`divisi`) REFERENCES `divisi` (`id_divisi`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -913,7 +925,7 @@ ALTER TABLE `surat_masuk`
   ADD CONSTRAINT `surat_masuk_ibfk_4` FOREIGN KEY (`kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `surat_usulan`
+-- Ketidakleluasaan untuk tabel `surat_usulan`
 --
 ALTER TABLE `surat_usulan`
   ADD CONSTRAINT `surat_usulan_ibfk_1` FOREIGN KEY (`kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -921,13 +933,13 @@ ALTER TABLE `surat_usulan`
   ADD CONSTRAINT `surat_usulan_ibfk_3` FOREIGN KEY (`user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tugas`
+-- Ketidakleluasaan untuk tabel `tugas`
 --
 ALTER TABLE `tugas`
   ADD CONSTRAINT `tugas_ibfk_1` FOREIGN KEY (`id_divisi_tugas`) REFERENCES `divisi` (`id_divisi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `user`
+-- Ketidakleluasaan untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_divisi`) REFERENCES `divisi` (`id_divisi`) ON DELETE CASCADE ON UPDATE CASCADE;
